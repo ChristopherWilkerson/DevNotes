@@ -2,6 +2,13 @@
 Learning Notes
 ## June 6th, 2024
 CSS notes
+
+first line in css.style sheet if want to reset default css style sheets
+* {
+  margin: 0;
+  padding: 0;
+
+
 Can use Inline styling and using <style> in <head> to format 
 Link the CSS style sheet to the HTML by using <link> in the <head>  <link href="./style.css" rel='stylesheet'/>
 * selector selects all elements in the html code (e.g. change font styles)
@@ -89,4 +96,14 @@ p.content-header {
   padding: 6px 11px 4px 9px;
 }
 
+auto margins with top and bottom at 0 and centered left-right
+.pull-quote {
+  width: 350px;
+  margin: 0 auto;
 
+  Unlike horizontal margins, vertical margins do not add. Instead, the larger of the two vertical margins sets the distance between adjacent elements.
+
+  min-width and min-height (also max) to preserve text and website layout across various screen types
+
+overflow: scroll;
+or : hidden;
