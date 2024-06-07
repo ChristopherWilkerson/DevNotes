@@ -14,3 +14,20 @@ Specificity heirarchy
         ID
         Class
         Type
+  Chain multiple tags together by using . in between.
+  In the example above, .main-list selects the element with the.main-list class (the <ul> element). The descendant <li>‘s are selected by adding li to the selector, separated by a space. This results in .main-list li as the final selector.
+  space between two types will specify. But order matters. li h4 does not equal h4 li. the former will pull all h4 from li and the latter will pull all li from h4s.
+  add comma between selectors to change multiple selectors without having to repeat code.
+   background gradient = background: linear-gradient(-45deg, #35577D, #141E30);
+  font-weight: bold or normal
+  The text-align property can be set to one of the following commonly used values:
+
+    left — aligns text to the left side of its parent element, which in this case is the browser.
+    center — centers text inside of its parent element.
+    right — aligns text to the right side of its parent element.
+    justify— spaces out text in order to align with the right and left side of the parent element.
+  opacity- 0 to 1
+  background-image
+  image {
+  background-image: url("https://content.codecademy.com/courses/freelance-1/unit-2/soccer.jpeg");
+  
