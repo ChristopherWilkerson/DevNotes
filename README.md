@@ -34,4 +34,59 @@ Specificity heirarchy
 ## June 7th, 2024
 
   Input img using src <img src:"link">
-  
+  list-style: square;      changings bullet point list to squares.  list-style: none; to remove bullets
+  img height = height&px
+
+  button:hover for hover button in css
+  button {10px 12px;}
+  .button1 {border-radius: 2px;} for rounded buttons or in %
+  border: 2px solid pink; for border around button
+
+  .button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}            is shadow on hover
+
+auto scale images 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+dope
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+center text on image: after creating two div, one containing the img and the text and one just containg the text
+}
+
+.image-container { 
+  position: relative;
+  display: inline-block;
+  }
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-text {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: rgb(102, 151, 134); 
+  color: #fff; 
+  padding: 5px 10px; 
+  font-size: 20px; 
+  text-align: center;
+}
+
+shorthand padding - top, right, bottom, left (clockwise from top)
+p.content-header {
+  padding: 6px 11px 4px 9px;
+}
+
+
