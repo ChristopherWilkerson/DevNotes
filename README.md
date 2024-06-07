@@ -30,4 +30,8 @@ Specificity heirarchy
   background-image
   image {
   background-image: url("https://content.codecademy.com/courses/freelance-1/unit-2/soccer.jpeg");
+
+  ##June 7th, 2024
+
+  Input img using src <img src:"link">
   
