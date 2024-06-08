@@ -169,9 +169,39 @@ gradient text:
 
   .container div {
       min-width: 20rem;
+
+
+  changing box properties to auto fit content in box 
+ * {box-sizing: border-box;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 10rem;
+
+reset style sheets in seperate reset style css file
+
+good practice to reset styles
+
+also, using notes to seperate sections of code
       color: white;
       scroll-snap-align: center;
+
+
+The default position of an element can be changed by setting its position property. The position property can take one of five values:
+
+    static - the default value (it does not need to be specified)
+    relative
+    absolute
+    fixed
+    sticky
+.green-box {
+  background-color: green;
+  position: relative;
+  top: 50px;
+  left: 120px;
+
+position: fixed;   for nav bars or things you want to scroll with the user.
+
+z-index: 10;  move the nav bar to stay in front 
+
+display: inline-block;     Good :)
