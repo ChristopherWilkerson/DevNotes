@@ -107,3 +107,71 @@ auto margins with top and bottom at 0 and centered left-right
 
 overflow: scroll;
 or : hidden;
+
+## June 8th, 2024
+
+css vertical text
+writing-mode: vertical-lr;
+
+can use in conjunction with display: flex;
+
+
+gap, col-gap, row-gap; px;
+
+****** !important
+html {
+  scroll-behavior: smooth;
+
+
+.box {
+  overflow: auto;
+  resize: both;           or vertical and horizontal (keep a display: flex; on for centered)
+
+
+gradient text:
+
+  background: linear-gradient ()
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  create background gradient, then mask it to text
+
+  fit image to box
+
+  object-fit: cover;
+
+
+  fade in text:
+
+  animation: fade 1s ease-in 1s;
+  pointer-events: none;
+  opacity: 0;
+  }
+
+  @keyframes fade {
+  0%{
+    opacity: 0;
+    }
+  100%{
+    opacity: 1;
+    }
+  }
+
+  airbnb type scroll bar
+
+  .container {
+      width: 20rem;
+      height: 20rem;
+      background: white;
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;       can use proximity as well for more natural scroll 
+      }
+
+  .container div {
+      min-width: 20rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10rem;
+      color: white;
+      scroll-snap-align: center;
