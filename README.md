@@ -245,3 +245,43 @@ flex-end, flex-start, center
 can then use sepearte "gap" property set at ems of px
 
 
+image drop shadow
+
+filter: drop-shadow (px px px color);
+
+
+
+nav links
+
+<nav></nav>
+<ul></ul>
+<li></li>
+<a href="">
+
+where <li><a href=""></a></li>
+
+.navbar li{
+position: fixed;
+display: inline-block
+width: 100%;
+top: 0;
+padding: 10 10;
+}
+
+remove hyperlink text decoration:
+
+.navbar a {
+text-decoration: none;
+
+
+using avatar image for links and stuff
+
+background-image: url("");
+background-size: cover;
+height: 50px;
+weight: 50px;
+border-radius: 50%;
+display: inline-block;
+vertical-align: middle;
+
+use <span> when don't want the full formatting of <div>
