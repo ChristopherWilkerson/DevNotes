@@ -205,3 +205,43 @@ position: fixed;   for nav bars or things you want to scroll with the user.
 z-index: 10;  move the nav bar to stay in front 
 
 display: inline-block;     Good :)
+
+## June 9th, 2024
+
+header
+
+.item-1 {
+position: fixed;
+top: 0px;
+left: 0px
+border-radius: 0;
+width: 100%
+z-index: 1;
+
+
+make sticky follow immediately
+position: sticky;
+top: 0px 
+
+flex-box moves items in a container along an x or y axis. Defaults to X flex-direction: row;
+but can change to Y using flex-direction: column;
+
+also, justify-content: flex-end; shifts content to end of container.
+center or space-between or space-around or space-evenly. defaults to flex-start;
+
+use align-items: in conjunction to move items in container along other axis simultaneously. 
+flex-start, flex-end, center, baseline
+
+use flex-grow on any specific item or class to grow it flex-grow: 1;
+
+align-self in specific class to override rest of flex-box behavior.
+
+flex-wrap: wrap;
+will allow items to use more of the container than the default 1 line.
+
+this unlocks the align-content: property which allows us to align all the items in the container.
+flex-end, flex-start, center
+
+can then use sepearte "gap" property set at ems of px
+
+
