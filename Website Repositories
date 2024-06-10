@@ -1,3 +1,81 @@
-## Website Repositories
-#### June 10th, 2024
+## Website Repositories & Command Line
+#### June 10th, 2024 
 
+domain names are referred to as web addresses; google.com codecademy.com etc.
+
+---> Command Line:
+
+  files organized into a tree structure. directories are file folders.
+root is first directory
+
+ls = When you type ls, the command line looks at the directory you are in,
+and then “lists” all the files and directories inside of it. 
+
+pwd = print working directory. Shows what directory you're currently operating from.
+
+cd = change directories "cd 2015" then use pwd to check
+
+.. = navigate up one branch on the file tree.
+
+cd // = use / to navigate through folders in one line i.e. 2015/jan/memory 
+
+cd ../ = to navigate up the file tree in one line i.e. cd ../../..
+
+mkdir = make directory "make folder"
+
+touch = create new file 
+
+press tab to auto finish commands
+
+up and down arrow to cycle through old commands
+
+"clear" will clear txt from view but not delete commands made.
+
+using "ls" more specifically
+
+ls 
+    -a - lists all contents, including hidden files and directories
+    -l - (a lowercase “L”) lists all contents of a directory in long format, as well as the file permissions
+    -t - orders files and directories by the time they were last modified.
+
+-l 
+    
+    1. Access rights. These indicate the read, write, and execute permissions on the file or directory allowed to the owner, the group, and all users. You can read more about file permissions.
+    2. Number of hard links. This represents the number of hard links to the file or directory. This number includes the parent directory link (..) and current directory link (.).
+    3. The username of the file’s owner. Here the username is cc.
+    4. The name of the group that owns the file. Here the group name is eng.
+    5. The size of the file in bytes.
+    6. The date & time that the file was last modified.
+    7. The name of the file or directory.
+
+cat = The cat command outputs the contents of a specified file.
+
+cp = copy file 
+
+cp terminator.txt terminator.bak (create back up copy file in same directory)
+cp source.txt directory (copy file to new directory)
+cp the-office.txt slapstick/the-office-us.txt (copy file to new directory AND rename it)
+
+cp file1.txt file2.txt my_directory/  (copies multiple files to new directory)
+
+* = grab all files from directory or location
+    cp * my_directory/
+* .txt = grab all text files from directory or location.
+cp w*.txt my_directory/ (grabs all txt that start with w)
+
+mv = move files but doesn't copy them. (mv my_file.txt my_directory/) or multiples (mv my_file_1.txt my_file_2.txt my_directory/)
+
+or use mv to rename a file in same directory (mv file_original.txt file_renamed.txt)
+
+rm = delete from current directory
+
+The -r (recursive) option is used to delete a directory and all of its child directories. (rm -r unwanted_directory)
+
+REDIRECTION IN COMMAND
+
+$ echo "hello"
+hello
+$ echo "Hello World" > hello.txt
+$ cat hello.txt
+Hello World
+$ 
