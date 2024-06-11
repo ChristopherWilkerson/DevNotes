@@ -84,3 +84,126 @@ in
 
 CASE SENSITIVE
 
+## June 11th, 2024
+Arithmatic 
+
+number1 ** number2  = number 1 to the power of number 2
+
+Augmented
+
+x = 10
+x = x + 3 
+    will return 13
+x += 3 
+    will also return 13
+
+order of operations are just standard math order
+
+parenthesis
+exponents
+mult and div
+add and sub
+
+
+round() = rounding float up to nearest integer
+abs() = absolute value, or positive value of result.
+
+
+********
+
+import math
+
+math. 
+
+if functions - 
+boolean rules;
+
+
+is_hot = True
+is_cold = False
+
+if is_hot:
+    print("It's a hot day")
+    print("Drink plenty of water")
+elif is_cold:
+    print("It's a cold day")
+    print("Wear warm clothes")
+else:
+    print("Enjoy your day")
+
+simple down payment calc
+
+price = 1000000
+is_good = False
+is_bad = True
+
+if is_good:
+    down_payment = 0.1 * price
+elif is_bad:
+    down_payment = 0.2 * price
+print(f"Down payment: ${down_payment}")
+
+simple credit loan approval with AND operator
+
+has_high_income = True
+has_good_credit = True
+
+if has_high_income and has_good_credit:
+    print("Eligible for loan")
+else:
+    print("Not eligible for loan")
+
+
+Operators = and, or, not
+
+
+<  less than
+<= less than or equal to
+> greater than
+>= greater than or equal to
+== equal to
+!= not equal
+
+simple temp program
+
+temperature = input("What is the current temperature?: ")
+if int(temperature) < 50:
+    print("Bundle up, it's freezing")
+elif int(temperature) < 70:
+    print("absolutely perfect")
+elif int(temperature) > 70:
+    print("it's hot as shit, good luck")
+
+simple character limit program
+
+name = input("what is your name? ")
+if len(name) < 3:
+    print("name is too short")
+elif len(name) > 50:
+    print("name is too long")
+else:
+    print("name looks good!")
+
+simple weight conversion 2.0
+
+weight = int(input("what is your weight? "))
+unit = input('(L)bs or (K)g: ')
+if unit.upper() == "L":
+    converted = weight * 0.45
+    print(f"you are {converted} kilos ")
+if unit.upper() == "K":
+    converted = weight / 0.45
+    print(f"you are {converted} pounds ")
+
+
+Today I learned css colors, a little about git, git functions, and git hub. I also learned about typography
+and importing fonts to html projects. I started a table project to refresh my memory on how to create tables in html
+as well as to serve as my notes on the subject. Finally I learned some arithmetic and if and conditional functions in python and how to program them.
+
+
+
+
+
+    
+
+
