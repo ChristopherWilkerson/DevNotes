@@ -125,7 +125,26 @@ alias pd="pwd" = creates the alias pd for the pwd command, which is then saved i
 
 
 
-Edit.
+## June 11th, 2024
+
+Git 
+
+git init (start git function)
+
+git add (add to staging area for tracking)
+
+git status (checks status of file)
+
+git diff filename (displays new version's added code [where filename is the file's name]
+
+git commit -m "   "   (git commit commits the file to permanent residency on the server, and -m allows for a message to be 
+  added in quotations.
+
+git log (a log of the commits)
+
+
+
+
 
 
 
