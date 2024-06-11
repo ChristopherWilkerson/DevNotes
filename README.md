@@ -279,9 +279,103 @@ using avatar image for links and stuff
 background-image: url("");
 background-size: cover;
 height: 50px;
+
+## June 11th, 2024
+
+CSS
+
+can use named-colors, hex codes, or rgb codes, but choose one and keep it consistent throughout the css file.
 weight: 50px;
 border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
 
 use <span> when don't want the full formatting of <div>
+
+
+hsl = hue-saturation-lightness
+
+      (0-360, %, %)
+
+hsla =hsl + alpha
+      (0-360, %, %, decimal 0-1)
+
+can also use
+
+rgba = (0-255, 0-255, 0-255, decimal 0-1)
+
+A little unconventional, but still worth mentioning is how hex colors can also have an alpha value. By adding a two-digit hexadecimal value to the end of the six-digit representation (#52BC8280), or a one-digit hexadecimal value to the end of the three-digit representation (#F003), you can change the opacity of a hexadecimal color. Hex opacity ranges from 00 (transparent) to FF (opaque).
+
+Multi-Word Values
+
+When specifying a typeface with multiple words, like Times New Roman, it is recommended to use quotation marks (' ') to group the words together, like so:
+
+h1 {
+  font-family: 'Times New Roman';
+}
+
+** Web safe fonts are good fallback fonts that can be used if your preferred font is not available.
+
+h1 {
+  font-family: Caslon, Georgia, 'Times New Roman';
+}
+
+In the example above, Georgia and Times New Roman are fallback fonts to Caslon. When you specify a group of fonts, you have what is known as a font stack. A font stack usually contains a list of similar-looking fonts. Here, the browser will first try to use the Caslon font. If that’s not available, it will try to use a similar font, Georgia. And if Georgia is not available, it will try to use Times New Roman.
+
+Text can also be styled to appear in either all uppercase or lowercase with the text-transform property.
+
+h1 {
+  text-transform: uppercase;
+}
+
+Letter Spacing
+
+The letter-spacing property is used to set the horizontal spacing between the individual characters in an element. It’s not common to set the spacing between letters, but it can sometimes help the readability of certain fonts or styles. The letter-spacing property takes length values in units, such as 2px or 0.5em.
+
+p {
+  letter-spacing: 2px;
+}
+
+
+Word Spacing
+
+You can set the space between words with the word-spacing property. It’s also not common to increase the spacing between words, but it may help enhance the readability of bolded or enlarged text. The word-spacing property also takes length values in units, such as 3px or 0.2em.
+
+h1 {
+  word-spacing: 0.3em;
+}
+
+
+We can use the line-height property to set how tall we want each line containing our text to be. Line height values can be a unitless number, such as 1.2, or a length value, such as 12px, 5% or 2em.
+
+p {
+  line-height: 1.4;
+}
+
+
+
+The text-align property, which you may already be familiar with from the CSS Visual Rules lesson, aligns text to its parent element.
+
+h1 {
+  text-align: right;
+}
+
+In the example above, the <h1> element is aligned to the right side, instead of the default left.
+
+
+Fonts can also be added using a @font-face ruleset in your CSS stylesheet instead of using a <link> element in your HTML document. As mentioned earlier, fonts can be downloaded just like any other file on the web. They come in a few different file formats, such as:
+
+    OTF (OpenType Font)
+    TTF (TrueType Font)
+    WOFF (Web Open Font Format)
+    WOFF2 (Web Open Font Format 2)
+
+The different formats are a progression of standards for how fonts will work with different browsers, with WOFF2 being the most progressive. It’s a good idea to include TTF, WOFF, and WOFF2 formats with your @font-face rule to ensure compatibility on all browsers.
+
+
+
+
+
+
+
+
