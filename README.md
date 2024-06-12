@@ -372,6 +372,92 @@ Fonts can also be added using a @font-face ruleset in your CSS stylesheet instea
 
 The different formats are a progression of standards for how fonts will work with different browsers, with WOFF2 being the most progressive. It’s a good idea to include TTF, WOFF, and WOFF2 formats with your @font-face rule to ensure compatibility on all browsers.
 
+## June 12th, 2024
+
+More CSS
+
+add an underline
+
+text-decoration: underline;
+
+
+Most browsers will display the text of a title attribute as a tooltip, meaning when a user hovers their cursor over an element, the text will appear in a small box near the cursor.
+
+To add tooltips to a clickable element like a link, add it as the title attribute.
+
+<p>
+  <a href="https://www.codecademy.com" title="Codecademy is an online learning platform">Codecademy</a> is the best place to learn to code!
+</p>
+
+Mouse over the word “Codecademy” below to see this behavior in action!
+
+for hand mouse icon
+cursor: pointer;
+
+Links have four main states: normal (not clicked), hover, active (clicked), and visited. These four states have associated CSS pseudo-classes: :link, :hover, :active, and :visited.
+
+The proper order of these rules is:
+
+    :link
+    :visited
+    :hover
+    :active
+
+For example, to implement a bare minimum 3-D button design, the following CSS ruleset could be used:
+
+button {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0px 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  margin-top: 5px;
+  color: black;
+  box-shadow: 0px 0px;
+}
+
+A button element can then be created with the following HTML:
+
+<button>Click me</button>
+
+
+simple breadcrumb website trail
+
+.breadcrumb > li {
+  display: inline;
+}
+
+.breadcrumb li+li::before {
+	padding: 10px;
+  content: ">";
+
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: lavender;
+  background-color: grey;
+  font-size: .5rem;
+
+}
+
+.breadcrumb a:hover {
+  color: orange;
+  background-color: black;
+
+}
+
+
+
+
+
 
 
 
