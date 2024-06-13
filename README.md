@@ -557,3 +557,15 @@ wireframes = blueprints for websites or apps
   <section>
   <footer>
 
+## June 13th, 2024
+
+*** Responsive grids for maximizing content across various platforms and screen sizes
+
+desktop (12-16)
+mobile (4)
+
+
+
+
+
+
