@@ -455,13 +455,105 @@ simple breadcrumb website trail
 }
 
 
+proper anchor tag in list example
+
+<body>
+    <div class="jumbotron">
+      <ul class ="breadcrumb">
+        <li><a href="#">Asia</a></li>
+        <li><a href="#">Singapore</a></li>
+        <li><a href="#">Tourism</a></li>
+        <li><a href="#">Hotels</a></li>
+        </ul>
+
+
+more breadcrumb styles
+
+.breadcrumb li a::before, .breadcrumb li a::after {
+  content: "";
+  position: absolute;
+  border-color: darkcyan;
+  border-style: solid;
+  border-width: 15px 5px;
+
+  By setting a portion of the border to transparent, it creates the “tail” of the arrow:
+
+.breadcrumb li a::before {
+  left: -10px;
+  border-left-color: transparent;
+}
+
+
+arrow  breadcrumb :)
+
+.breadcrumb {
+  text-align: left;
+}
+.breadcrumb li {
+  float: left;
+}
+
+.breadcrumb a {
+  color: #fff;
+  background: darkcyan;
+  text-decoration: none;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 15px;
+  padding: 0 5px;
+}
+
+.breadcrumb a::before,
+.breadcrumb a::after {
+  content: "";
+  position: absolute;
+  border-color: darkcyan;
+  border-style: solid;
+  border-width: 15px 5px;
+}
+
+.breadcrumb a::before {
+  left: -10px;
+  border-left-color: transparent;
+}
+
+.breadcrumb a::after {
+  left: 100%;
+  border-color: transparent;
+  border-left-color: darkcyan;
+}
+
+.breadcrumb a:hover {
+  background-color: rgb(181, 88, 48);
+}
+
+.breadcrumb a:hover::before {
+  border-color: rgb(181, 88, 48);
+  border-left-color: transparent;
+}
+
+.breadcrumb a:hover::after {
+  border-left-color: rgb(181, 88, 48);
+}
+
+specific syntax when adding breadcrumb > in between classes located in another class. li.class+li.class::before
+
+.breadcrumb li.location+li.location::before {
+  content: ">";
 
 
 
+wireframes = blueprints for websites or apps
+	focus on usablity and function rather than aesthetics.
 
 
-
-
-
-
+ html sections
+  <header>
+  <nav>
+  <main>
+  <body>
+  <section>
+  <footer>
 
