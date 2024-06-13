@@ -566,6 +566,9 @@ tablet (5-8)
 mobile (3-4)
 
 
+**container divs
+<div class="container">
+
 To designate an element as a flex container, set the element’s display property to flex or inline-flex. Once an item is a flex container, there are several properties we can use to specify how its children behave. In this lesson we will cover these properties:
 
     justify-content
@@ -586,6 +589,150 @@ Below are five commonly used values for the align-items property:
     center — the center of all elements will be positioned halfway between the top and bottom of the parent container.
     baseline — the bottom of the content of all items will be aligned with each other.
     stretch — if possible, the items will stretch from top to bottom of the container (this is the default value; elements with a specified height will not stretch; elements with a minimum height or no height specified will stretch).
+
+.container {
+  display: flex;
+}
+
+.side {
+  width: 100px;
+  flex-grow: 1;
+}
+
+.center {
+  width: 100px;
+  flex-grow: 2;
+}
+
+In the example above, the .container div has a display value of flex, so its three child divs will be positioned next to each other. If there is additional space in the .container div (in this case, if it is wider than 300 pixels), the flex items will grow to fill it. The .center div will stretch twice as much as the .side divs. For example, if there were 60 additional pixels of space, the center div would absorb 30 pixels and the side divs would absorb 15 pixels each.
+
+If a max-width is set for an element, it will not grow larger than that even if there is more space for it to absorb.
+
+All of the previous properties we have learned are declared on flex containers, or the parent elements. This property — flex-grow — is the first we have learned that is declared on flex items.
+Instructions
+
+    Checkpoint 1 Passed
+
+    1.
+
+    Assign .top.side and .top.center a flex-grow value of 1. Stretch and shrink the browser.
+
+Checkpoint 2 Passed
+
+2.
+
+Assign .middle.center the flex-grow value of 1. Stretch and shrink the browser again.
+Checkpoint 3 Enabled
+
+3.
+
+Assign .bottom.side a flex-grow value of 1 and .bottom.center a flex-grow value of 2. Shrink and stretch the browser again. Compare the differences in behavior of all three sections.
+
+
+
+
+flex basis to lock in size of flex item before shrink or grow
+
+
+flex-grow (number)
+flex-shrink (number)
+flex-basis (px or rem size)
+
+flex defines all three properties easily
+
+flex: 1 3 100px; 
+     grow shrink basis;
+
+
+
+Sometimes, we don’t want our content to shrink to fit its container. Instead, we might want flex items to move to the next line when necessary. This can be declared with the flex-wrap property. The flex-wrap property can accept three values:
+
+    wrap — child elements of a flex container that don’t fit into a row will move down to the next line
+    wrap-reverse — the same functionality as wrap, but the order of rows within a flex container is reversed (for example, in a 2-row flexbox, the first row from a wrap container will become the second in wrap-reverse and the second row from the wrap container will become the first in wrap-reverse)
+    nowrap — prevents items from wrapping; this is the default value and is only necessary to override a wrap value set by a different CSS rule.
+
+<div class='container'>
+  <div class='item'>
+    <h1>We're going to wrap!</h1>
+  </div>
+  <div class='item'>
+    <h1>We're going to wrap!</h1>
+  </div>
+  <div class='item'>
+    <h1>We're going to wrap!</h1>
+  </div>
+</div>
+
+.container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 250px;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+}
+
+In the example above, three flex items are contained by a parent flex container. The flex container is only 250 pixels wide so the three 100 pixel wide flex items cannot fit inline. The flex-wrap: wrap; setting causes the third, overflowing item to appear on a new line, below the other two items.
+
+Note: The flex-wrap property is declared on flex containers.
+
+
+align-items: aligning content for single row of flex box.
+
+align-content: aligning content for multiple rows (ie after a flex wrap
+
+Below are some of the more commonly used align-content values:
+
+    flex-start — all rows of elements will be positioned at the top of the parent container with no extra space between.
+    flex-end — all rows of elements will be positioned at the bottom of the parent container with no extra space between.
+    center — all rows of elements will be positioned at the center of the parent element with no extra space between.
+    space-between — all rows of elements will be spaced evenly from the top to the bottom of the container with no space above the first or below the last.
+    space-around — all rows of elements will be spaced evenly from the top to the bottom of the container with the same amount of space at the top and bottom and between each element.
+    stretch — if a minimum height or no height is specified, the rows of elements will stretch to fill the parent container from top to bottom (default value).
+
+
+Note: The align-content property is declared on flex containers.
+
+The main axis is used to position flex items with the following properties:
+
+    justify-content
+    flex-wrap
+    flex-grow
+    flex-shrink
+
+The cross axis is used to position flex items with the following properties:
+
+    align-items
+    align-content
+
+flex-direction to change axis
+
+The flex-direction property can accept four values:
+
+    row — elements will be positioned from left to right across the parent element starting from the top left corner (default).
+    row-reverse — elements will be positioned from right to left across the parent element starting from the top right corner.
+    column — elements will be positioned from top to bottom of the parent element starting from the top left corner.
+    column-reverse — elements will be positioned from the bottom to the top of the parent element starting from the bottom left corner.
+
+
+Like the shorthand flex property, the shorthand flex-flow property is used to declare both the flex-wrap and flex-direction properties in one line.
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+In the example above, we take two lines to accomplish what can be done with one.
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+
 
 
 
