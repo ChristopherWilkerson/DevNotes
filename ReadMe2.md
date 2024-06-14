@@ -334,3 +334,38 @@ print(7 % 3) # Prints 1
 In each of these modulo operations, 3 is the divisor. Since 3 / 3 equals 1 with no remainder, the result of the first modulo operation is 0. Note that as the dividend increases by 1, the remainder also increases by 1, until we reach the next number that is evenly divisible by 3 — this creates a pattern that repeats contiuously as the dividend increases by 1!
 
 Because of this, the modulo operator is useful in programming when we want to perform an action every nth time something occurs. Imagine you own a small café and would like for every 7th customer to receive a survey. If every customer transaction is numbered in the order they occur, you can determine which customers should receive the survey by calculating <transaction number> % 7 — if the result is 0, hand out the survey!
+
+
+If you want to concatenate a string with a number you will need to make the number a string first, using the str() function. If you’re trying to print() a numeric variable you can use commas to pass it as a different argument rather than converting it to a string.
+
+birthday_string = "I am "
+age = 10
+birthday_string_2 = " years old today!"
+
+# Concatenating an integer with strings is possible if we turn the integer into a string first
+full_birthday_string = birthday_string + str(age) + birthday_string_2
+
+# Prints "I am 10 years old today!"
+print(full_birthday_string)
+
+# If we just want to print an integer 
+# we can pass a variable as an argument to 
+# print() regardless of whether 
+# it is a string.
+
+# This also prints "I am 10 years old today!"
+print(birthday_string, age, birthday_string_2)
+
+Using str() we can convert variables that are not strings to strings and then concatenate them. But we don’t need to convert a number to a string for it to be an argument to a print statement.
+
+
+# for notes in python
+
+True and False are their own special type: bool.
+
+True and False are the only bool types, and any variable that is assigned one of these values is called a boolean variable.
+
+Boolean variables can be created in several ways. The easiest way is to simply assign True or False to a variable:
+
+
+
