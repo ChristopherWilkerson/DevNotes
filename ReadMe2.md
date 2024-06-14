@@ -201,9 +201,136 @@ and importing fonts to html projects. I started a table project to refresh my me
 as well as to serve as my notes on the subject. Finally I learned some arithmetic and if and conditional functions in python and how to program them.
 
 
+## June 13th, 2024
+
+while loop
+
+while condition:
+
+example
+
+    i = 1
+    while i <= 5:
+    print(i)
+    i = i + 1
+
+
+    (don't forget the colon)
+
+Renaming a variable
+
+rightclick refactor then rename
+
+or hotkey shift+F6
+
+break
+    will break the loop
+
+simple car game that doesn't exit program until given command to "quit"
+
+             Old CODE               command = ""
+                        while command.lower() != "quit":
+                            user_input = input("> ")
+                            if user_input == "quit":
+                                print("sorry to see you go ")
+                                break
+                            elif user_input.lower() == "help":
+                                print("start - to start the car ")
+                                print("stop -- to stop the car ")
+                                print("cruise -- to cruise around ")
+                                print("quit -- to exit ")
+                            elif user_input.lower() == "stop":
+                                print("the car has been stopped ")
+                            elif user_input.lower() == "start":
+                                print("the car has been started ")
+                            elif user_input.lower() == "cruise":
+                                print("you're cruising around town listening to LANY ")
+                            else:
+                                print("sorry, I do not understand ")
 
 
 
-    
+        Revised Code (slimmer)
+        
+                
+                user_input = ""
+        while user_input != "quit":
+            user_input = input("> ").lower()
+            if user_input == "quit":
+                print("sorry to see you go ")
+                break
+            elif user_input == "help":
+                print("""
+                start -- to start the car 
+                stop -- to stop the car
+                cruise -- to cruise around 
+                quit -- to exit """)
+            elif user_input == "stop":
+                print("the car has been stopped ")
+            elif user_input == "start":
+                print("the car has been started ")
+            elif user_input == "cruise":
+                print("you're cruising around town listening to LANY ")
+            else:
+                print("sorry, I do not understand ")
 
 
+        code with already stopped and started
+
+        user_input = ""
+started = False
+while user_input != "quit":
+    user_input = input("> ").lower()
+    if user_input == "quit":
+        print("sorry to see you go ")
+        break
+    elif user_input == "help":
+        print("""
+start -- to start the car 
+stop -- to stop the car
+cruise -- to cruise around 
+quit -- to exit """)
+    elif user_input == "stop":
+        if not started:
+            print("the car is already stopped ")
+        else:
+            started = False
+            print("the car has been stopped ")
+    elif user_input == "stop":
+        print("the car is already stopped ")
+    elif user_input == "start":
+        if started:
+            print("the car is already started ")
+        else:
+            started = True
+            print("the car has been started ")
+    elif user_input == "cruise":
+        print("you're cruising around town listening to LANY ")
+    else:
+        print("sorry, I do not understand ")
+
+
+For loops
+
+print [] = print lists
+
+for item in ["Chris", "Nash", "Emma", "Son Ye-Jin"]:
+    print(item)
+
+range = object over numbers
+range(10) = 0-9
+
+range(5, 10, 2) = start, end, step
+
+
+*** Let’s look at another example to get a better idea of how modulo is useful in programming:
+
+print(3 % 3) # Prints 0
+print(4 % 3) # Prints 1
+print(5 % 3) # Prints 2
+print(6 % 3) # Prints 0
+print(7 % 3) # Prints 1
+
+In each of these modulo operations, 3 is the divisor. Since 3 / 3 equals 1 with no remainder, the result of the first modulo operation is 0. Note that as the dividend increases by 1, the remainder also increases by 1, until we reach the next number that is evenly divisible by 3 — this creates a pattern that repeats contiuously as the dividend increases by 1!
+
+Because of this, the modulo operator is useful in programming when we want to perform an action every nth time something occurs. Imagine you own a small café and would like for every 7th customer to receive a survey. If every customer transaction is numbered in the order they occur, you can determine which customers should receive the survey by calculating <transaction number> % 7 — if the result is 0, hand out the survey!
