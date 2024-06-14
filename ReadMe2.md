@@ -373,4 +373,43 @@ Boolean variables can be created in several ways. The easiest way is to simply a
 what makes a programmer successful isn’t avoiding errors, it’s knowing how to solve them.
 
 
+# Fortune Cookie Program 🥠
 
+import random
+
+fortune = random.randint(0, 4)
+
+if fortune == 0:
+  print("May you one day be carbon neutral")
+elif fortune == 1:  
+  print("You have rice in your teeth")
+elif fortune == 2:
+  print("No snowflake feels responsible for an avalanche")
+elif fortune == 3:
+  print("You can only connect the dots looking backwards")
+elif fortune == 4:
+  print("The fortune you seek is in another cookie")
+
+
+
+We can even combine multiple data types in one list. For example, this list contains both a string and an integer:
+
+mixed_list_string_number = ["Noelle", 61]
+
+Lists can contain any data type in Python! For example, this list contains a string, integer, boolean, and float.
+
+mixed_list_common = ["Mia", 27, False, 0.5]
+
+
+create an empty list like this:
+
+empty_list = []
+
+Why would we create an empty list?
+
+Usually, it’s because we’re planning on filling it up later based on some other input. We’ll talk about two ways of filling up a list in the next exercise
+
+
+
+
+  
