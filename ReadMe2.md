@@ -368,4 +368,9 @@ True and False are the only bool types, and any variable that is assigned one of
 Boolean variables can be created in several ways. The easiest way is to simply assign True or False to a variable:
 
 
+## June 14th, 2024
+
+what makes a programmer successful isn’t avoiding errors, it’s knowing how to solve them.
+
+
 
