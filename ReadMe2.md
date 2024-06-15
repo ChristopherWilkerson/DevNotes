@@ -410,6 +410,73 @@ Why would we create an empty list?
 Usually, it’s because we’re planning on filling it up later based on some other input. We’ll talk about two ways of filling up a list in the next exercise
 
 
+When we want to add multiple items to a list, we can use + to combine two lists (this is also known as concatenation).
 
+Below, we have a list of items sold at a bakery called items_sold:
+
+items_sold = ["cake", "cookie", "bread"]
+
+Suppose the bakery wants to start selling "biscuit" and "tart":
+
+items_sold_new = items_sold + ["biscuit", "tart"]
+print(items_sold_new)
+# Prints ['cake', 'cookie', 'bread', 'biscuit', 'tart']
+
+In this example, we created a new variable, items_sold_new, which contained both the original items sold, and the new items. We can inspect the original items_sold and see that it did not change:
+
+We can select a single element from a list by using square brackets ([]) and the index of the list item. If we wanted to select the third element from the list, we’d use calls[2]:
+
+print(calls[2])
+
+
+
+** We will need to modify the list to accommodate the change to our garden list. To change a value in a list, reassign the value using the specific index.
+
+garden[2] = "Strawberries"
+
+print(garden)
+
+Will output:
+
+["Tomatoes", "Green Beans", "Strawberries", "Grapes"]
+
+Negative indices will work as well.
+
+garden[-1] = "Raspberries"
+
+print(garden)
+
+Will output:
+
+["Tomatoes", "Green Beans", "Strawberries", "Raspberries"]
+
+
+
+\\We can remove elements in a list using the .remove() Python method.
+
+
+recalling 2d lists 
+
+#Your code below:
+class_name_test = [["Jenny", 90], ["Alexus", 85.5], ["Sam", 83], ["Ellie", 101.5]]
+print(class_name_test)
+sams_score = class_name_test[2][1]
+
+modifying 2d lists
+
+We will need to modify the list to accommodate the change to our class_name_hobbies list. To change a value in a two-dimensional list, reassign the value using the specific index.
+
+# The list of Jenny is at index 0. The hobby is at index 1. 
+class_name_hobbies[0][1] = "Meditation"
+print(class_name_hobbies)
+
+print(sams_score)
+
+To use the .remove() method on a two-dimensional list, call it on the sublist you are modifying and pass the value you want to remove in between the parenthesis ( ).
+
+practice_list = [["a"], ["b"], ["c"]]
+practice_list[1].remove("b")
+
+print(practice_list)
 
   
