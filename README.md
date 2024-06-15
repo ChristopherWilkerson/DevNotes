@@ -819,5 +819,57 @@ In all of our grids so far, there hasn’t been any space between the items in o
 Using the CSS properties grid-row-start and grid-row-end, we can make single grid items take up multiple rows. Remember, we are no longer applying CSS to the outer grid container; we’re adding CSS to the elements sitting inside the grid!
 
 
+We can use the property grid-row as shorthand for grid-row-start and grid-row-end. The following two code blocks will produce the same output:
+
+.item {
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.item {
+  grid-row: 4 / 6;
+}
+
+
+When using these properties, we can use the keyword span to start or end a column or row, relative to its other end. Look at how span is used in the code below:
+
+.item {
+  grid-column: 4 / span 2;
+}
+
+This is telling the item element to begin in column four and take up two columns of space. So item would occupy columns four and five. It produces the same result as the following code blocks:
+
+.item {
+  grid-column: 4 / 6;
+}
+
+.item {
+  grid-column-start: 4;
+  grid-column-end: span 2;
+}
+
+.item {
+  grid-column-start: span 2;
+  grid-column-end: 6;
+}
+
+span is a useful keyword, because it avoids off-by-one errors (miscalculating the ending grid line) you might make when determining the ending grid line of an element. If you know where you want your grid item to start and how long it should be, use span!
+
+We’ve already been able to use grid-row and grid-column as shorthand for properties like grid-row-start and grid-row-end. We can refactor even more using the property grid-area. This property will set the starting and ending positions for both the rows and columns of an item.
+
+.item {
+  grid-area: 2 / 3 / 4 / span 5;
+}
+
+grid-area takes four values separated by slashes. The order is important! This is how grid-area will interpret those values.
+
+    grid-row-start
+    grid-column-start
+    grid-row-end
+    grid-column-end
+
+
+
+
 
 
