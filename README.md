@@ -1046,8 +1046,134 @@ and every row is its own idea.
 text on background image. with paragraph and button.
 
 
+## June 17th, 2024 - Responsive CSS Design
+
+Rem
+6 min
+
+The second relative unit of measurement in CSS is the rem, coded as rem.
+
+Rem stands for root em. It acts similar to em, but instead of checking parent elements to size font, it checks the root element. The root element is the <html> tag.
+
+Most browsers set the font size of <html> to 16 pixels, so by default rem measurements will be compared to that value. To set a different font size for the root element, you can add a CSS rule.
+
+html {
+  font-size: 20px;
+}
 
 
+**** Scaling Images and Videos
+
+Memorize; common way to scale images and videos proportionally.
+
+8 min
+
+Many websites contain a variety of different media, like images and videos. When a website contains such media, it’s important to make sure that it is scaled proportionally so that users can correctly view it.
+
+.container {
+  width: 50%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+h1 {
+  font-size: 2rem;
+}
+
+In the example above, the font size of the root element, <html>, is set to 20 pixels. All subsequent rem measurements will now be compared to that value and the size of h1 elements in the example will be 40 pixels.
+
+
+My Home
+Sizing Elements: Percentages: Height & Width
+Narrative and Instructions
+Learn
+Sizing Elements
+Percentages: Height & Width
+7 min
+
+To size non-text HTML elements relative to their parent elements on the page you can use percentages.
+
+Percentages are often used to size box-model values, like width and height, padding, border, and margins. They can also be used to set positioning properties (top, bottom, left, right). 
+
+
+
+Note: The example above scales the width of an image (or video) to the width of a container. If the image is larger than the container, the vertical portion of the image will overflow and will not display. To swap this behavior, you can set max-height to 100% and width to auto (essentially swapping the values). This will scale the height of the image with the height of the container instead. If the image is larger than the container, the horizontal portion of the image will overflow and not display.
+
+
+My Home
+Media Queries: Media Queries
+Narrative and Instructions
+Learn
+Media Queries
+Media Queries
+8 min
+
+CSS uses media queries to adapt a website’s content to different screen sizes. With media queries, CSS can detect the size of the current screen and apply different CSS styles depending on the width of the screen.
+
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+The example above demonstrates how a media query is applied. The media query defines a rule for screens smaller than 480 pixels (approximately the width of many smartphones in landscape orientation).
+
+Let’s break this example down into its parts:
+
+    @media — This keyword begins a media query rule and instructs the CSS compiler on how to parse the rest of the rule.
+    only screen — Indicates what types of devices should use this rule. In early attempts to target different devices, CSS incorporated different media types (screen, print, handheld). The rationale was that by knowing the media type, the proper CSS rules could be applied. However, “handheld” and “screen” devices began to occupy a much wider range of sizes and having only one CSS rule per media device was not sufficient. screen is the media type always used for displaying content, no matter the type of device. The only keyword is added to indicate that this rule only applies to one media type (screen).
+    and (max-width : 480px) — This part of the rule is called a media feature, and instructs the CSS compiler to apply the CSS styles to devices with a width of 480 pixels or smaller. Media features are the conditions that must be met in order to render the CSS within a media query.
+    CSS rules are nested inside of the media query’s curly braces. The rules will be applied when the media query is met. In the example above, the text in the body element is set to a font-size of 12px when the user’s screen is less than 480px.
+
+
+Media Queries
+Dots Per Inch (DPI)
+6 min
+
+Another media feature we can target is screen resolution. Many times we will want to supply higher quality media (images, video, etc.) only to users with screens that can support high resolution media. Targeting screen resolution also helps users avoid downloading high resolution (large file size) images that their screen may not be able to properly display.
+
+To target by resolution, we can use the min-resolution and max-resolution media features. These media features accept a resolution value in either dots per inch (dpi) or dots per centimeter (dpc). Learn more about resolution measurements here.
+
+@media only screen and (min-resolution: 300dpi) {
+    /* CSS for high resolution screens */
+}
+
+The media query in the example above targets high resolution screens by making sure the screen resolution is at least 300 dots per inch. If the screen resolution query is met, then we can use CSS to display high resolution images and other media.
+
+
+
+
+My Home
+Media Queries: Comma Separated List
+Narrative and Instructions
+Learn
+Media Queries
+Comma Separated List
+4 min
+
+If only one of multiple media features in a media query must be met, media features can be separated in a comma separated list.
+
+For example, if we needed to apply a style when only one of the below is true:
+
+    The screen is more than 480 pixels wide
+    The screen is in landscape mode
+
+We could write:
+
+@media only screen and (min-width: 480px), (orientation: landscape) {
+    /* CSS ruleset */
+}
+
+In the example above, we used a comma (,) to separate multiple rules. The example above requires only one of the media features to be true for its CSS to apply.
+
+Note that the second media feature is orientation. The orientation media feature detects if the page has more width than height. If a page is wider, it’s considered landscape, and if a page is taller, it’s considered portrait.
 
 
 
