@@ -1035,6 +1035,16 @@ grid-auto-flow accepts these values:
 You can pair row or column with dense, like this: grid-auto-flow: row dense;.
 
 
+## June 16th, 2024
+practice
+
+every website is composed of rows
+and every row is its own idea.
+
+
+** Home page hero section
+text on background image. with paragraph and button.
+
 
 
 
