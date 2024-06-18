@@ -1017,5 +1017,23 @@ Our result would be the same:
 [4, -2, 158, 66, -90]
 
 
+add 10 to grade list example
+
+grades = [90, 88, 62, 76, 74, 89, 48, 57]
+scaled_grades = [grade + 10 for grade in grades]
+print(scaled_grades)
+
+Here are a few list comprehensions in a single block. Take a moment to compare how the syntax must change depending on whether or not an else clause is included:
+
+numbers = [2, -1, 79, 33, -45]
+
+no_if   = [num * 2 for num in numbers]
+if_only = [num * 2 for num in numbers if num < 0]
+if_else = [num * 2 if num < 0 else num * 3 for num in numbers]
+
+Now, let’s write our own list comprehensions with conditionals! 
+
+
+
 
 
