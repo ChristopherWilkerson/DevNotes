@@ -851,6 +851,49 @@ Note: One-line for loops are useful for simple programs. It is not recommended y
 Let’s practice writing our own for loop!
 
 
+## June 17th, 2024
+
+While loops
+
+While Loops: Introduction
+17 min
+
+In Python, for loops are not the only type of loops we can use. Another type of loop is called a while loop and is a form of indefinite iteration.
+
+A while loop performs a set of instructions as long as a given condition is true.
+
+The structure follows this pattern:
+
+while <conditional statement>:
+  <action>
+
+Let’s examine this example, where we print the integers 0 through 3:
+
+count = 0
+while count <= 3:
+  # Loop Body
+  print(count)
+  count += 1
+
+Let’s break the loop down:
+
+    count is initially defined with the value of 0. The conditional statement in the while loop is count <= 3, which is true at the initial iteration of the loop, so the loop body executes.
+
+Inside the loop body, count is printed and then incremented by 1.
+
+    When the first iteration of the loop has finished, Python returns to the top of the loop and checks the conditional again. After the first iteration, count would be equal to 1 so the conditional still evaluates to True and so the loop continues.
+
+    This continues until the count variable becomes 4. At that point, when the conditional is tested it will no longer be True and the loop will stop.
+
+The output would be:
+
+0
+1
+2
+3
+
+Note the following about while loops before we write our own:
+
 
 
 
