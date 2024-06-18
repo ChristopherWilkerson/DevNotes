@@ -1179,3 +1179,7 @@ Note that the second media feature is orientation. The orientation media feature
 #### Responsive design emulator in devtools. 
 Such a good tool for checking websites on various screens.
 
+
+## June 18th, 2024
+
+flex box website 
