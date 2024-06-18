@@ -1176,5 +1176,6 @@ In the example above, we used a comma (,) to separate multiple rules. The exampl
 Note that the second media feature is orientation. The orientation media feature detects if the page has more width than height. If a page is wider, it’s considered landscape, and if a page is taller, it’s considered portrait.
 
 
-
+#### Responsive design emulator in devtools. 
+Such a good tool for checking websites on various screens.
 
