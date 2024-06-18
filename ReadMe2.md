@@ -894,6 +894,128 @@ The output would be:
 
 Note the following about while loops before we write our own:
 
+Loops
+Loop Control: Continue
+7 min
+
+While the break control statement will come in handy, there are other situations where we don’t want to end the loop entirely. What if we only want to skip the current iteration of the loop?
+
+Let’s take this list of integers as our example:
+
+big_number_list = [1, 2, -1, 4, -5, 5, 2, -9]
+
+What if we want to print out all of the numbers in a list, but only if they are positive integers. We can use another common loop control statement called continue.
+
+for i in big_number_list:
+  if i <= 0:
+    continue
+  print(i)
+
+This would produce the output:
+
+1
+2
+4
+5
+2
+
+Notice a few things:
+
+    Similar to when we were using the break control statement, our continue control statement is usually paired with some form of a conditional (if/elif/else).
+    When our loop first encountered an element (-1) that met the conditions of the if statement, it checked the code inside the block and saw the continue. When the loop then encounters a continue statement it immediately skips the current iteration and moves onto the next element in the list (4).
+    The output of the list only printed positive integers in the list because every time our loop entered the if statement and saw the continue statement it simply moved to the next iteration of the list and thus never reached the print statement.
+
+
+
+Loops
+Nested Loops
+12 min
+
+Loops can be nested in Python, as they can with other programming languages. We will find certain situations that require nested loops.
+
+Suppose we are in charge of a science class, that is split into three project teams:
+
+project_teams = [["Ava", "Samantha", "James"], ["Lucille", "Zed"], ["Edgar", "Gabriel"]]
+
+Using a for or while loop can be useful here to get each team:
+
+for team in project_teams:
+  print(team)
+
+Would output:
+
+["Ava", "Samantha", "James"]
+["Lucille", "Zed"]
+["Edgar", "Gabriel"]
+
+But what if we wanted to print each individual student? In this case, we would actually need to nest our loops to be able to loop through each sub-list. Here is what it would look like:
+
+# Loop through each sublist
+for team in project_teams:
+  # Loop elements in each sublist
+  for student in team:
+    print(student)
+
+This would output:
+
+Ava
+Samantha
+James
+Lucille
+Zed
+Edgar
+Gabriel
+
+Let’s practice writing a nested loop!
+
+
+My Home
+Loops: List Comprehensions: Introduction
+Narrative and Instructions
+Learn
+Loops
+List Comprehensions: Introduction
+8 min
+
+So far we have seen many of the ideas about using loops in our code. Python prides itself on allowing programmers to write clean and elegant code. We have already seen this with Python giving us the ability to write while and for loops in a single line.
+
+In this exercise, we are going to examine another way we can write elegant loops in our programs using list comprehensions.
+
+To start, let’s say we had a list of integers and wanted to create a list where each element is doubled. We could accomplish this using a for loop and a new list called doubled:
+
+numbers = [2, -1, 79, 33, -45]
+doubled = []
+
+for number in numbers:
+  doubled.append(number * 2)
+
+print(doubled)
+
+Would output:
+
+[4, -2, 158, 66, -90]
+
+Let’s see how we can use the power of list comprehensions to solve these types of problems in one line. Here is our same problem but now written as a list comprehension:
+
+numbers = [2, -1, 79, 33, -45]
+doubled = [num * 2 for num in numbers]
+print(doubled)
+
+Let’s break down our example in a more general way:
+
+new_list = [<expression> for <element> in <collection>]
+
+In our doubled example, our list comprehension:
+
+    Takes an element in the list numbers
+    Assigns that element to a variable called num (our <element>)
+    Applies the <expression> on the element stored in num and adds the result to a new list called doubled
+    Repeats steps 1-3 for every other element in the numbers list (our <collection>)
+
+Our result would be the same:
+
+[4, -2, 158, 66, -90]
+
 
 
 
