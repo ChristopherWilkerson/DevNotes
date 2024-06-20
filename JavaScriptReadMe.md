@@ -322,6 +322,40 @@ switch (groceryItem) {
 
 
 
+Simple marathon program
+            let raceNumber = Math.floor(Math.random() * 1000);
+            let runnerEarly = false
+            let runnerAge = 33
+            if (runnerAge > 18 && runnerEarly) {
+              raceNumber += 1000
+            }
+            if (runnerAge > 18 && runnerEarly) {
+              console.log(`You will race at 9:30a. Your race number is ${raceNumber}`)
+            } else if (runnerAge > 18 && !runnerEarly) {
+              console.log(`You will race at 11:00a. Your race number is ${raceNumber}`)
+            } else if (runnerAge < 18) {
+              console.log(`You will race at 12:30pm. Your race number is ${raceNumber}`)
+            } else {
+              console.log("See official before start.")
+            }
+                              
 
-                              
-                              
+
+      Functions
+Calling a Function
+5 min
+
+As we saw in previous exercises, a function declaration binds a function to an identifier.
+
+However, a function declaration does not ask the code inside the function body to run, it just declares the existence of the function. The code inside a function body runs, or executes, only when the function is called.
+
+To call a function in your code, you type the function name followed by parentheses.
+Diagram showing the syntax of invoking a function
+
+This function call executes the function body, or all of the statements between the curly braces in the function declaration. Function execution diagram
+
+We can call the same function as many times as needed.
+
+Let’s practice calling functions in our code.
+
+
