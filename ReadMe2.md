@@ -1173,7 +1173,7 @@ This would output:
 Saving our values returned from a function like we did with new_zealand_exchange allows us to reuse the value (in the form of a variable) throughout the rest of the program. 
 
 
-
+## June 19th, 2024 took break to focus on javascript
 
 
 
