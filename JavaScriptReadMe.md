@@ -404,4 +404,99 @@ greeting() // Output: Hello, stranger!
 By using a default parameter, we account for situations when an argument isn’t passed into a function that is expecting an argument. 
 
 
+## June 20th, 2024
+
+Functions
+Function Expressions
+13 min
+
+Another way to define a function is to use a function expression. To define a function inside an expression, we can use the function keyword. In a function expression, the function name is usually omitted. A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.
+
+Consider the following function expression:
+defining a function expression
+
+To declare a function expression:
+
+    Declare a variable to make the variable’s name be the name, or identifier, of your function. Since the release of ES6, it is common practice to use const as the keyword to declare the variable.
+
+    Assign as that variable’s value an anonymous function created by using the function keyword followed by a set of parentheses with possible parameters. Then a set of curly braces that contain the function body.
+
+To invoke a function expression, write the name of the variable in which the function is stored followed by parentheses enclosing any arguments being passed into the function.
+
+variableName(argument1, argument2)
+
+Unlike function declarations, function expressions are not hoisted so they cannot be called before they are defined.
+
+Let’s define a new function using a function expression.
+
+
+Functions
+Arrow Functions
+3 min
+
+ES6 introduced arrow function syntax, a shorter way to write functions by using the special “fat arrow” () => notation.
+
+Arrow functions remove the need to type out the keyword function every time you need to create a function. Instead, you first include the parameters inside the ( ) and then add an arrow => that points to the function body surrounded in { } like this:
+
+const rectangleArea = (width, height) => {
+  let area = width * height;
+  return area;
+};
+
+It’s important to be familiar with the multiple ways of writing functions because you will come across each of these when reading other JavaScript code.
+
+
+Functions
+Concise Body Arrow Functions
+5 min
+
+JavaScript also provides several ways to refactor arrow function syntax. The most condensed form of the function is known as concise body. We’ll explore a few of these techniques below:
+
+    Functions that take only a single parameter do not need that parameter to be enclosed in parentheses. However, if a function takes zero or multiple parameters, parentheses are required.
+    showcasing how arrow functions parameters differ for different amounts of parameters
+
+    A function body composed of a single-line block does not need curly braces. Without the curly braces, whatever that line evaluates will be automatically returned. The contents of the block should immediately follow the arrow => and the return keyword can be removed. This is referred to as implicit return.
+
+comparing single line and multiline arrow functions
+
+So if we have a function:
+
+const squareNum = (num) => {
+  return num * num;
+};
+
+We can refactor the function to:
+
+const squareNum = num => num * num;
+
+Notice the following changes:
+
+    The parentheses around num have been removed, since it has a single parameter.
+    The curly braces { } have been removed since the function consists of a single-line block.
+    The return keyword has been removed since the function consists of a single-line block.
+
+
+
+My Home
+Scope: Review: Scope
+Narrative and Instructions
+Learn
+Scope
+Review: Scope
+1 min
+
+In this lesson, you learned about scope and how it impacts the accessibility of different variables.
+
+Let’s review the following terms:
+
+    Scope refers to where variables can be accessed throughout the program, and is determined by where and how they are declared.
+    Blocks are statements that exist within curly braces {}.
+    Global scope refers to the context within which variables are accessible to every part of the program.
+    Global variables are variables that exist within global scope.
+    Block scope refers to the context within which variables are accessible only within the block they are defined.
+    Local variables are variables that exist within block scope.
+    Global namespace is the space in our code that contains globally scoped information.
+    Scope pollution is when too many variables exist in a namespace or variable names are reused.
+
+As you continue your coding journey, remember to use best practices when declaring your variables! Scoping your variables tightly will ensure that your code has clean, organized, and modular logic.
 
