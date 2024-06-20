@@ -500,3 +500,5 @@ Let’s review the following terms:
 
 As you continue your coding journey, remember to use best practices when declaring your variables! Scoping your variables tightly will ensure that your code has clean, organized, and modular logic.
 
+
+
