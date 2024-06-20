@@ -359,3 +359,49 @@ We can call the same function as many times as needed.
 Let’s practice calling functions in our code.
 
 
+Functions
+Parameters and Arguments
+8 min
+
+So far, the functions we’ve created execute a task without an input. However, some functions can take inputs and use the inputs to perform a task. When declaring a function, we can specify its parameters. Parameters allow functions to accept input(s) and perform a task using the input(s). We use parameters as placeholders for information that will be passed to the function when it is called.
+
+Let’s observe how to specify parameters in our function declaration:
+JavaScript syntax for declaring a function with parameters
+
+In the diagram above, calculateArea(), computes the area of a rectangle, based on two inputs, width and height. The parameters are specified between the parenthesis as width and height, and inside the function body, they act just like regular variables. width and height act as placeholders for values that will be multiplied together. 
+
+
+
+simple rectangular area functin
+function area_rect(width, height) {
+  console.log(width * height)
+}
+area_rect(2119, 5123)
+
+
+
+**** Functions
+Default Parameters
+5 min
+
+One of the features added in ES6 is the ability to use default parameters. Default parameters allow parameters to have a predetermined value in case there is no argument passed into the function or if the argument is undefined when called.
+
+Take a look at the code snippet below that uses a default parameter:
+
+function greeting (name = 'stranger') {
+  console.log(`Hello, ${name}!`)
+}
+
+greeting('Nick') // Output: Hello, Nick!
+greeting() // Output: Hello, stranger!
+
+    In the example above, we used the = operator to assign the parameter name a default value of 'stranger'. This is useful to have in case we ever want to include a non-personalized default greeting!
+
+    When the code calls greeting('Nick') the value of the argument is passed in and, 'Nick', will override the default parameter of 'stranger' to log 'Hello, Nick!' to the console.
+
+    When there isn’t an argument passed into greeting(), the default value of 'stranger' is used, and 'Hello, stranger!' is logged to the console.
+
+By using a default parameter, we account for situations when an argument isn’t passed into a function that is expecting an argument. 
+
+
+
