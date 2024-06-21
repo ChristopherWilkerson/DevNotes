@@ -506,3 +506,9 @@ grid-template-column: repeat(auto-fit, minmax(300px, 1fr));
 
 on flex-children
 flex: 1;
+
+
+
+## June 21, 2024
+
+Command + Opt + K to run javascript console in browser
