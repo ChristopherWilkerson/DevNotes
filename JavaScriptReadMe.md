@@ -502,3 +502,7 @@ As you continue your coding journey, remember to use best practices when declari
 
 
 
+grid-template-column: repeat(auto-fit, minmax(300px, 1fr)); 
+
+on flex-children
+flex: 1;
