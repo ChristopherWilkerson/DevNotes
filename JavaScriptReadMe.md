@@ -722,5 +722,18 @@ We declare a getUserPromise variable that stores the getUser method turned into 
 Now, this is an extremely simplified example, but it’s helpful to recognize how to use this important tool when you start working with more complex callback functions
 
 
+## Douglas Crockford JavaScript video notes
+## if dealing with money : javascript bad with some arithmetic functions. .1 + .2 = .30000004
+need to multiple by 100 (or 1000 or whatever) to deal with integers, then scale it back
 
+sitting in a beach house on the east coast, learning code on a saturday.
+
+in for statements, make conditional if statement to avoid for looping thru object container heirachy. 
+when using parse.int always use a radix.
+
+
+only functions have scope 
+variables do not have scope. 
+
+if creating something with more than a few variables, step back and consider refactoring them as a single object. 
 
