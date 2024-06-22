@@ -585,3 +585,28 @@ A JSON data type must be one of the following:
     null
 
 
+By default, you indicate the input is ready for eval when you hit enter. If you’d like to type multiple lines and then have them evaluated at once, you can type .editor while in the REPL. Once in “editor” mode, you can type control + d when you’re ready for the input to be evaluated. Each session of the REPL has a single shared memory; you can access any variables or functions you define until you exit the REPL.
+
+
+Introduction to Node.js
+Core Modules
+6 min
+
+Modularity is a software design technique where one program has distinct parts, each providing a single piece of the overall functionality. These separate modules come together to build a cohesive whole. Modularity is essential for creating scalable programs which incorporate libraries and frameworks and separate the program’s concerns into manageable chunks. Essentially, a module is a collection of code located in a file. Instead of having an entire program located in a single file, code is organized into separate files based on the concerns they address. These files can then be included in other files by using the require() function.
+
+To save developers from reinventing the wheel each time, Node.js has several built-in modules to perform common tasks efficiently. These are known as the core modules. The core modules are defined within Node.js’s source code and are located in the lib/ folder. Core modules can be required by passing a string with the name of the module into the require() function:
+
+// Require in the 'events' core module:
+const events = require('events');
+
+The example above shows how the events module is required into a file and stored in an events variable. Understanding the specifics of this module isn’t necessary at this point, but the events module is a Node.js core module that provides key functions for working with, well… events. You’ll learn more about it in a later lesson. 
+
+Once in the REPL, a complete list of core modules can be accessed by typing the command:
+
+require('module').builtinModules
+
+As you can see, there are many modules already built into Node.js and ready to be utilized! In the next few exercises, we’ll explore some of the more useful ones in further detail.
+
+
+
+
