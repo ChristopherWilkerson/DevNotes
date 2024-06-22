@@ -512,3 +512,15 @@ flex: 1;
 ## June 21, 2024
 
 Command + Opt + K to run javascript console in browser
+
+
+## Node.js
+
+Note the following syntax rules for JSON:
+
+    The curly braces, {..}, hold objects.
+    The square brackets, [..], hold arrays.
+    Data is stored in name-value pairs separated by a colon, :.
+    Every name-value pair is separated from another pair by a comma, ,. Similarly, every item in an array is delimited by a comma as well. Trailing commas are forbidden.
+    JSON property names must be in double-quoted (" ") text even though JavaScript names do not hold by this stringency.
+
