@@ -607,6 +607,120 @@ require('module').builtinModules
 
 As you can see, there are many modules already built into Node.js and ready to be utilized! In the next few exercises, we’ll explore some of the more useful ones in further detail.
 
+## June 22nd, 2024
+
+Introduction to Node.js
+The OS Module
+11 min
+
+When developing or debugging an app, it can be helpful to have information about the computer, operating system, and network on which the program is running. Before Node, this information could not be retrieved using JavaScript due to the language being confined to the browser. However, Node.js is a JavaScript runtime, which means it can execute code outside of the browser, and we’re able to get access to much of this information through the os core module.
+
+Unlike process and console, the os module is not global and needs to be included into the file in order to gain access to its methods. You can include the os module into your file by typing:
+
+const os = require('os');
+
+With the os module saved to the os variable, you can call methods like:
+
+    os.type() — to return the computer’s operating system.
+    os.arch() — to return the operating system CPU architecture.
+    os.networkInterfaces() — to return information about the network interfaces of the computer, such as IP and MAC address.
+    os.homedir() — to return the current user’s home directory.
+    os.hostname() — to return the hostname of the operating system.
+    os.uptime() — to return the system uptime, in seconds.
+
+Let’s take a look at an example:
+
+const os = require('os');
+
+const local = {  
+  'Home Directory': os.homedir(),    
+  'Operating System': os.type(),
+  'Last Reboot': os.uptime()
+}
+
+In the above example code, we first require the os module and store it in a variable, os. Below that, we have an object, local, that will hold some information about the user’s computer: the name of the home directory, the type of operating system, and the time since the computer was last rebooted.
+
+  {
+    'Home Directory': '/Users/luca',
+    'Operating System': 'Darwin',
+    'Time since reboot': 86997
+  }
+
+When we run the program, the local object stores all the requested information:
+
+    the user’s home directory — '/Users/luca',
+    the operating system — 'Darwin' (Darwin is the underlying operating system of macOS.),
+    and the time since the computer was last rebooted — 86997 seconds.
+Introduction to Node.js
+The Util Module
+22 min
+
+Developers sometimes classify outlier functions used to maintain code and debug certain aspects of a program’s functionality as utility functions. Utility functions don’t necessarily create new functionality in a program, but you can think of them as internal tools used to maintain and debug your code. The Node.js util core module contains methods specifically designed for these purposes. The util module can be required into the file using:
+
+const util = require('util');
+
+Once required, you have access to many useful objects and methods within the util module. One important object is types, which provides methods for runtime type checking in Node.
+
+const util = require('util');
+
+const today = new Date();
+const earthDay = 'April 22, 2022';
+
+console.log(util.types.isDate(today));
+console.log(util.types.isDate(earthDay));
+
+In the above example, we first require in the util module. Next, we declare two variables: today stores today’s date as an instance of the Date object, and earthDay stores the date of Earth Day as a string. We then log the results of type checking each variable using util.types.isDate(). The types.isDate() method checks for Date objects and returns a boolean value, giving us:
+
+true
+false
+
+Since today is a Date object, it returns true, and since earthDay is a string, it returns false!
+
+Another important util method is .promisify(), which turns callback functions into promises. As you know, asynchronous programming is essential to Node.js. In the beginning, this asynchrony was achieved using error-first callback functions, which are still very prevalent in the Node ecosystem today. But since promises are often preferred over callbacks and especially nested callbacks, Node offers a way to turn these into promises. Let’s take a look:
+
+function getUser (id, callback) {
+  return setTimeout(() => {
+    if (id === 5) {
+      callback(null, { nickname: 'Teddy' })
+    } else {
+      callback(new Error('User not found'))
+    }
+  }, 1000)
+}
+
+function callback (error, user) {
+  if (error) {
+    console.error(error.message)
+    process.exit(1)
+  }
+
+  console.log(`User found! Their nickname is: ${user.nickname}`)
+}
+
+getUser(1, callback) // -> `User not found`
+getUser(5, callback) // -> `User found! Their nickname is: Teddy`
+
+Here we have a function that queries a database for a specified user ID. getUser methods are very common in back-end applications, and most will also support error-first callbacks. Since a database query typically takes longer to run than other operations, we simulate the query with a setTimeout() method that executes a callback function after 1000 milliseconds (or 1 second). If the user with the specified ID is found, the callback function is executed with null passed in as the argument for the error parameter, and an object containing the returned user information is passed in as an argument for the user parameter. If the user is not found, the callback function is executed, passing in a new Error as the argument for the error parameter. A second argument for user is not necessary since the function will end in the case of an error.
+
+This way of handling this function may seem a bit convoluted these days, but with .promisify(), we can easily change it into a modern, cleaner, and more maintainable version of itself:
+
+const getUserPromise = util.promisify(getUser);
+
+getUserPromise(id)
+  .then((user) => {
+      console.log(`User found! Their nickname is: ${user.nickname}`);
+  })
+  .catch((error) => {
+      console.log('User not found', error);
+  });
+
+getUser(1) // -> `User not found`
+getUser(5) // -> `User found! Their nickname is: Teddy`
+
+We declare a getUserPromise variable that stores the getUser method turned into a promise using the .promisify() method. With that in place, we’re able to use getUserPromise with .then() and .catch() methods (or we could also use the async...await syntax here) to resolve the promise returned or catch any errors.
+
+Now, this is an extremely simplified example, but it’s helpful to recognize how to use this important tool when you start working with more complex callback functions
+
 
 
 
