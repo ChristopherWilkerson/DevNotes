@@ -835,6 +835,22 @@ iterate through an array simple
                     console.log(`I would love to visit ${vacationSpots[i]}`);
                         }
 
+Nested loop example to compare arrays with same values
+
+                        const bobsFollowers = ["Mike", "Duncan", "Lewis", "Trae"];
+                        const tinasFollowers = ["Mike", "Leslie", "Ellum", "MiYoung"];
+                        mutualFollowers = [];
+                        for (let i = 0; i < bobsFollowers.length; i++) {
+                            for (let j = 0; j < tinasFollowers.length; j++) {
+                                if (bobsFollowers[i] === tinasFollowers[j]) {
+                                    mutualFollowers.push(tinasFollowers[j]);
+                                }
+                            }
+                        }
+                        console.log(mutualFollowers);
+
+                        returns "Mike"
+
 
 
 
