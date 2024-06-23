@@ -732,8 +732,12 @@ in for statements, make conditional if statement to avoid for looping thru objec
 when using parse.int always use a radix.
 
 
+
+
 only functions have scope 
 variables do not have scope. 
 
 if creating something with more than a few variables, step back and consider refactoring them as a single object. 
+
+
 
