@@ -786,3 +786,6 @@ In the example above, the seasons array contained the names of the four seasons.
 However, we decided that we preferred to say 'Autumn' instead of 'Fall'.
 
 The line, seasons[3] = 'Autumn'; tells our program to change the item at index 3 of the seasons array to be 'Autumn' instead of what is already there.
+
+
+## June 23rd, 2024
