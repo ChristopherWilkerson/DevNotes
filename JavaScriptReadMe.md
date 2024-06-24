@@ -851,6 +851,94 @@ Nested loop example to compare arrays with same values
 
                         returns "Mike"
 
+Loops
+The While Loop
+12 min
+
+You’re doing great! We’re going to teach you about a different type of loop: the while loop. To start, let’s convert a for loop into a while loop:
+
+// A for loop that prints 1, 2, and 3
+for (let counterOne = 1; counterOne < 4; counterOne++){
+  console.log(counterOne);
+}
+
+// A while loop that prints 1, 2, and 3
+let counterTwo = 1;
+while (counterTwo < 4) {
+  console.log(counterTwo);
+  counterTwo++;
+}
+
+Let’s break down what’s happening with our while loop syntax:
+
+    The counterTwo variable is declared before the loop. We can access it inside our while loop since it’s in the global scope.
+    We start our loop with the keyword while followed by our stopping condition, or test condition. This will be evaluated before each round of the loop. While the condition evaluates to true, the block will continue to run. Once it evaluates to false the loop will stop.
+    Next, we have our loop’s code block which prints counterTwo to the console and increments counterTwo.
+
+What would happen if we didn’t increment counterTwo inside our block? If we didn’t include this, counterTwo would always have its initial value, 1. That would mean the testing condition counterTwo < 4 would always evaluate to true and our loop would never stop running! Remember, this is called an infinite loop and it’s something we always want to avoid. Infinite loops can take up all of your computer’s processing power potentially freezing your computer.
+
+So you may be wondering when to use a while loop! The syntax of a while loop is ideal when we don’t know in advance how many times the loop should run. Think of eating like a while loop: when you start taking bites, you don’t know the exact number you’ll need to become full. Rather you’ll eat while you’re hungry. In situations when we want a loop to execute an undetermined number of times, while loops are the best choice.
+
+
+
+Loops
+Do...While Statements
+11 min
+
+In some cases, you want a piece of code to run at least once and then loop based on a specific condition after its initial run. This is where the do...while statement comes in.
+
+A do...while statement says to do a task once and then keep doing it until a specified condition is no longer met. The syntax for a do...while statement looks like this:
+
+let countString = '';
+let i = 0;
+
+do {
+  countString = countString + i;
+  i++;
+} while (i < 5);
+
+console.log(countString);
+
+In this example, the code block makes changes to the countString variable by appending the string form of the i variable to it. First, the code block after the do keyword is executed once. Then the condition is evaluated. If the condition evaluates to true, the block will execute again. The looping stops when the condition evaluates to false.
+
+Note that the while and do...while loop are different! Unlike the while loop, do...while will run at least once whether or not the condition evaluates to true.
+
+const firstMessage = 'I will print!';
+const secondMessage = 'I will not print!'; 
+
+// A do while with a stopping condition that evaluates to false
+do {
+ console.log(firstMessage)
+} while (true === false);
+
+// A while loop with a stopping condition that evaluates to false
+while (true === false){
+  console.log(secondMessage)
+};
+
+
+using break and array value 
+                  const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+                  
+                  // Write your code below
+                  for (let i = 0; i < rapperArray.length; i++) {
+                      console.log(rapperArray[i]);
+                      if (rapperArray[i] === 'Notorious B.I.G.') {
+                        break;
+                      }
+                  }
+                  console.log("And if you don't know, now you know.");
+
+
+for loop vs for…of loop
+
+Here is an example of iterating over each element in an array using a traditional for loop with an index variable:
+
+const hobbies = ['singing', 'eating', 'quidditch', 'writing'];
+ 
+for (let i = 0; i < hobbies.length; i++) {
+  console.log(`I enjoy ${hobbies[i]}.`);
+}
 
 
 
