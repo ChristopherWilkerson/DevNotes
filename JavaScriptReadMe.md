@@ -1176,3 +1176,31 @@ be strict and intentional about the style rules that are enforced in my code.
       always break a line after a punctuator (, . ; : { } = (  [ ? ! + - * / % ~ ^ | & == <= >= += -= != < > << >> 
       *= /= %= ^= |= &= || && === !== <<= >>= >>> >>>=
       do not break line after name, string, number or ) ] ++ -- 
+
+
+      be careful with comma usage.
+            no extra commas
+            Good = [1, 2, 3]
+            Bad = [1, 2, 3,]
+
+      use blocks around structured statements: 
+            Good:
+                  if (a) {
+                  b ();
+            }
+            Bad:
+            if (a) b(); 
+
+      Blocks don't have scope in JS so only use them for structured statements:
+            if
+            while
+            for 
+            do 
+            try 
+            switch
+            function
+
+      Define all variables at beginning of function. 
+
+      avoid fallthrough in switch statements
+            every clause should explicitly end. with break, throw, or return.
