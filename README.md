@@ -1076,6 +1076,45 @@ Many websites contain a variety of different media, like images and videos. When
   overflow: hidden;
 }
 
+## June 25th, 2024
+Transitions
+
+CSS Transitions
+Timing Function
+4 min
+
+The next transition property is transition-timing-function. The timing function describes the pace of the transition.
+
+The default value is ease, which starts the transition slowly, speeds up in the middle, and slows down again at the end.
+
+Other valid values include:
+
+    ease-in — starts slow, accelerates quickly, stops abruptly
+    ease-out — begins abruptly, slows down, and ends slowly
+    ease-in-out — starts slow, gets fast in the middle, and ends slowly
+    linear — constant speed throughout
+
+transition-property: color;
+transition-duration: 1s;
+transition-timing-function: ease-out;
+
+In the example above, the text color will be animated over one second. The timing function is ease-out which means it will begin abruptly and slow down as it ends.
+
+
+CSS Transitions
+Combinations
+8 min
+
+The shorthand transition rule has one advantage over the set of separate transition-<property> rules: you can describe unique transitions for multiple properties, and combine them.
+
+To combine transitions, add a comma (,) before the semicolon (;) in your rule. After the comma, use the same shorthand syntax. For example:
+
+transition: color 1s linear,
+font-size 750ms ease-in 100ms;
+
+The above code transitions two properties at once. The text color transitions over one second with linear timing and no delay. At the same time, the font size transitions over 750 milliseconds with an ease-in timing and a 100 millisecond delay. This “chaining” is a powerful tool for expressing complicated animations.
+
+
 .container img {
   max-width: 100%;
   height: auto;
