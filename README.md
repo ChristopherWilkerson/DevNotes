@@ -1115,6 +1115,131 @@ font-size 750ms ease-in 100ms;
 The above code transitions two properties at once. The text color transitions over one second with linear timing and no delay. At the same time, the font size transitions over 750 milliseconds with an ease-in timing and a 100 millisecond delay. This “chaining” is a powerful tool for expressing complicated animations.
 
 
+All
+2 min
+
+Even with the shorthand, specifying transitions for many properties can be tedious. It is common to use the same duration, timing function, and delay for multiple properties. When this is the case you can set the transition-property value to all. This will apply the same values to all properties. To effect this, you can use all as a value for transition-property.
+
+all means every value that changes will be transitioned in the same way. You can use all with the separate transition properties, or the shorthand syntax. This allows you to describe the transition of many properties with a single line:
+
+transition: all 1.5s linear 0.5s;
+
+In this example, any change will be animated over one and a half seconds after a half-second delay with linear timing.
+
+
+Drop down example css
+.definable .definition-container {
+  position: fixed;
+  z-index: 10;
+  top: -100%;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 4rem 2rem 4rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 64px 0 rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 1.5rem;
+  transition: top 1s, opacity .5s; 
+
+}
+
+nav bar pop out example
+nav {
+  position: fixed;
+  z-index: 5;
+  left: -17.8em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 5rem;
+  padding-right: 2rem;
+  background: url("https://content.codecademy.com/courses/freelance-1/unit-6/nav_background.png") center center repeat;
+  font-family: "Proza Libre", serif;
+  font-size: 18px;
+  line-height: 2.2;
+  font-weight: bold;
+  color: #142033;
+  transition: left 1s ease-out 250ms;
+
+}
+
+Scoping Variables
+11 min
+
+Like other CSS properties, when we define a CSS variable, we are also giving that variable a set scope. In CSS, the scope is what determines where a variable will work based on where it is declared. Variables can have two kinds of scope: local and global. So far we have only dealt with variables with local scope.
+
+A locally scoped CSS variable will only affect the specific HTML element that it is declared in along with any children that element may contain.
+
+<nav id="menu-items">
+  <ul>
+    <li><a href='#'>One</a></li>
+    <li><a href='#'>Two</a></li>
+    <li><a href='#'>Three</a></li>
+  </ul>
+</nav>
+
+For instance, in the above code snippet, the <nav> element with the id of 'menu-items' contains an unordered list.
+
+#menu-items {
+  --menu-color-blue: blue;
+}
+
+#menu-items a {
+  color: var(--menu-color-blue);
+}
+
+Because the --menu-color-blue variable was declared inside the #menu-items selector, only #menu-items and its children can reference the variable.
+
+Globally scoped variables are declared in the :root pseudo-class. This pseudo-class points to the root element of the document, hence its name. In most cases that root element is actually the <html> element. By declaring variables in :root they can be applied globally across the entire HTML document.
+
+If we were to modify the previous example to instead declare --menu-color-blue inside of :root, then that variable would be able to be referenced anywhere in the document.
+
+:root {
+  --menu-color-blue: blue;
+}
+
+#menu-items a {
+  color: var(--menu-color-blue);
+}
+
+It is common practice to define variables inside the :root selector but not mandatory. There are plenty of good reasons for declaring variables with limited scope. For instance, if a large website is being designed then it could be a cleaner solution to create variables within relevant components instead of having all the variables pile up in :root.
+
+CSS Variables
+Fallback Values
+11 min
+
+Sometimes there are reasons why a given variable may be invalid when the webpage renders. For example, the variable could have been set improperly—a variable with a value of 20px could mistakenly be set as the value of the background-color property. Fallback values prevent these types of errors from happening.
+
+Fallback values can be provided as the second and optional argument of the var() function. As the name suggests, they will be used if the variable given as the first argument is invalid.
+
+An example of declaring a fallback value is as follows:
+
+body {
+  background: var(--main-background-color, #F3F3F3);
+}
+
+If a value of --main-background-color hasn’t been explicitly defined in the stylesheet or returns a non-color value, then the fallback value of #F3F3F3 is used.
+
+The fallback value may also be a CSS variable, in which case it must be passed using another var() function. Also, note that the var() function accepts a maximum of two arguments.
+
+body {
+/* --favorite-orange if --main-color is invalid and red if --favorite-orange is invalid */
+font-color: var(--main-color, var(--favorite-orange, red));
+
+In the above code, we set --favorite-orange as the fallback value of the --main-color variable and red as the fallback value of the --favorite-orange variable. We could continue with this pattern and provide yet another CSS variable in place of the red fallback value.
+
+body {
+/* --favorite-orange if --main-color is invalid and --favorite-yellow if --favorite-orange is invalid and yellow if --favorite-yellow is invalid */
+font-color: var(--main-color, var(--favorite-orange, var(--favorite-yellow, yellow)));
+}
+
+Fallback values are optional, but they ensure that the specified styles will be applied to the web page in the case of an error. 
+
+
+
+
 .container img {
   max-width: 100%;
   height: auto;
@@ -1228,3 +1353,7 @@ The two properties flex-direction and flex-wrap are used so often together that 
 For example, you can use flex-flow: row wrap to set rows and wrap them.
 
 Try using flex-flow to repeat the previous level.
+
+
+
+
