@@ -1204,3 +1204,15 @@ be strict and intentional about the style rules that are enforced in my code.
 
       avoid fallthrough in switch statements
             every clause should explicitly end. with break, throw, or return.
+
+## June 25th, 2024
+      Don't put java code in html
+      link it with src attribute
+
+
+      put <script> tag as far down in the <body> html tag as possible.
+      put the <css> as high in the <head> as possible.
+      minimize number of scripts per html page.
+
+      .getElementById is essentially walking the DOM and going through the entire document and pushing an object to fill it up with our found variables.  
+      a
