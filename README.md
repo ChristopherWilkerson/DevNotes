@@ -1237,6 +1237,41 @@ font-color: var(--main-color, var(--favorite-orange, var(--favorite-yellow, yell
 
 Fallback values are optional, but they ensure that the specified styles will be applied to the web page in the case of an error. 
 
+CSS Variables
+Responsiveness
+6 min
+
+So far, we have seen how CSS variables make it easier to reuse and read CSS code. But variables are also extremely powerful when used with media queries to create responsive designs.
+
+By using variables alongside media queries, we can dynamically change styles according to changes in viewport size and general system preference. For example, we can change the color scheme of our website when a user has their system preference set for dark themes versus light themes.
+
+In the Media Queries lesson, we learned that media queries can be used for conditionally applying styles based on interaction, screen size, type, and more. When using media queries with CSS variables, the main point of note is that we just need to redefine variable values for the effect to take place.
+
+@media screen and (min-width: 600px) {  
+  :root {
+    /* Light Color Theme */
+    --body-background: lightblue; 
+    --inner-margin: 6px;
+    --body-text-color: black;
+    --font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    /* Dark Color Theme */
+    --body-background: #000; 
+    --inner-margin: 12px;
+    --body-text-color: #fff;
+    --font-size: 12px;
+  }
+}
+
+The example shown above highlights a possible scenario for integrating variables with media queries. Here, we are changing the general style and font size of the web page depending on the size of the page. If the screen width is 600px or smaller, styles for a dark theme are applied. If the screen size is larger than 600px, then it switches to a light theme.
+
+If we didn’t use variables to do this, we would need to set new values for the color properties inside the appropriate media queries. But by using variables, all we have to do is redefine the variable directly! When websites scale up and become more complex, with different theme settings, screen variations, and more, redefining a relatively small number of variables becomes much easier than overriding a large number of hardcoded CSS properties.
+
+
 
 
 
