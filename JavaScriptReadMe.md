@@ -1310,3 +1310,125 @@ console.log(person._age); // Prints forty-five
 
 
 
+
+Advanced Objects
+Factory Functions
+11 min
+
+So far we’ve been creating objects individually, but there are times where we want to create many instances of an object quickly. Here’s where factory functions come in. A real world factory manufactures multiple copies of an item quickly and on a massive scale. A factory function is a function that returns an object and can be reused to make multiple object instances. Factory functions can also have parameters allowing us to customize the object that gets returned.
+
+Let’s say we wanted to create an object to represent monsters in JavaScript. There are many different types of monsters and we could go about making each monster individually but we can also use a factory function to make our lives easier. To achieve this diabolical plan of creating multiple monsters objects, we can use a factory function that has parameters:
+
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+
+In the monsterFactory function above, it has four parameters and returns an object that has the properties: name, age, energySource, and scare(). To make an object that represents a specific monster like a ghost, we can call monsterFactory with the necessary arguments and assign the return value to a variable:
+
+const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+ghost.scare(); // 'BOO!'
+
+Now we have a ghost object as a result of calling monsterFactory() with the needed arguments. With monsterFactory in place, we don’t have to create an object literal every time we need a new monster. Instead, we can invoke the monsterFactory function with the necessary arguments to take over the world make a monster for us!
+
+
+
+simple factory function to create multiple robots with two parameters and a talking method
+
+            function robotFactory(model, mobile) {
+                return {
+                    model: model,
+                    mobile: mobile,
+                    beep() {
+                        console.log('Beep Boop');
+                    }
+                }
+            };
+            const frank = robotFactory('shiny', 'hellish');
+            console.log(frank.model);
+
+
+
+
+Advanced Objects
+Destructured Assignment
+6 min
+
+We often want to extract key-value pairs from objects and save them as variables. Take for example the following object:
+
+const vampire = {
+  name: 'Dracula',
+  residence: 'Transylvania',
+  preferences: {
+    day: 'stay inside',
+    night: 'satisfy appetite'
+  }
+};
+
+If we wanted to extract the residence property as a variable, we could use the following code:
+
+const residence = vampire.residence; 
+console.log(residence); // Prints 'Transylvania' 
+
+However, we can also take advantage of a destructuring technique called destructured assignment to save ourselves some keystrokes. In destructured assignment we create a variable with the name of an object’s key that is wrapped in curly braces { } and assign to it the object. Take a look at the example below:
+
+const { residence } = vampire; 
+console.log(residence); // Prints 'Transylvania'
+
+Look back at the vampire object’s properties in the first code example. Then, in the example above, we declare a new variable residence that extracts the value of the residence property of vampire. When we log the value of residence to the console, 'Transylvania' is printed.
+
+We can even use destructured assignment to grab nested properties of an object:
+
+const { day } = vampire.preferences; 
+console.log(day); // Prints 'stay inside'
+
+Instructions
+
+    Checkpoint 1 Passed
+
+    1.
+
+    Use destructured assignment to create a const variable named functionality that extracts the functionality property of robot.
+
+    If you need a reminder on how to use destructured assignment, review the example in the narrative or check the hint.
+
+Checkpoint 2 Passed
+
+2.
+
+Since functionality is referencing robot.functionality we can call the methods available to robot.functionality simply through functionality.
+
+Take advantage of this shortcut and call the .beep() method on functionality.
+
+You can think of functionality as the object that was pulled out of robot.functionality. To call .beep(), use dot notation with the name of the method and a set of parentheses:
+
+functionality.beep();
+
+
+Advanced Objects
+Review
+<1 min
+
+Congratulations on finishing Advanced Objects!
+
+Let’s review the concepts covered in this lesson:
+
+    The object that a method belongs to is called the calling object.
+    The this keyword refers to the calling object and can be used to access properties of the calling object.
+    Methods do not automatically have access to other internal properties of the calling object.
+    The value of this depends on where the this is being accessed from.
+    We cannot use arrow functions as methods if we want to access other internal properties.
+    JavaScript objects do not have built-in privacy, rather there are conventions to follow to notify other developers about the intent of the code.
+    The usage of an underscore before a property name means that the original developer did not intend for that property to be directly changed.
+    Setters and getter methods allow for more detailed ways of accessing and assigning properties.
+    Factory functions allow us to create object instances quickly and repeatedly.
+    There are different ways to use object destructuring: one way is the property value shorthand and another is destructured assignment.
+    As with any concept, it is a good skill to learn how to use the documentation with objects!
+
+You’re ready to start leveraging more elegant code for creating and accessing objects in your code!
