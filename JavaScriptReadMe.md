@@ -1651,3 +1651,5 @@ Here are three common error types:
     TypeError: This error will be thrown if you attempt to perform an operation on a value of the wrong type. For example, if we tried to use a string method on a number, it would throw a TypeError.
 
 
+
+Use stack overflow website for debugging answers if can't find on google
