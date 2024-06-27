@@ -1636,3 +1636,18 @@ Awesome job on clearing the iterators lesson! You have learned a number of usefu
 
 
 
+## June 27th, 2024
+
+Debugging JavaScript Code
+JavaScript Error Types
+4 min
+
+Now that you can identify the type of error from an error stack trace, you might be wondering what the different types of errors mean.
+
+Here are three common error types:
+
+    SyntaxError: This error will be thrown when a typo creates invalid code — code that cannot be interpreted by the compiler. When this error is thrown, scan your code to make sure you properly opened and closed all brackets, braces, and parentheses and that you didn’t include any invalid semicolons.
+    ReferenceError: This error will be thrown if you try to use a variable that does not exist. When this error is thrown, make sure all variables are properly declared.
+    TypeError: This error will be thrown if you attempt to perform an operation on a value of the wrong type. For example, if we tried to use a string method on a number, it would throw a TypeError.
+
+
