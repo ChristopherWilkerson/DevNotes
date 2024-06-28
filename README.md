@@ -1392,3 +1392,36 @@ Try using flex-flow to repeat the previous level.
 
 
 
+## June 28th, 2024
+
+CSS 
+Positioning notes
+
+position: static = default. Not really a need to declare. 'top' 'left' all those don't work on it.
+	scroll behavior is how you would expect
+
+ position: relative = moves content relative to where it is originally placed. Doesn't displace other text
+ 	items on screen, just moves content on top or underneath depending on z-index. 
+
+(use on rare occasions) absolute: takes content out of the flow entirely. it moves relative to the nearest containing block, which by default is the viewport itself. not it's original placement. *elements will shrink
+down because no longer block level element. i.e one line headings will no longer stretch entire with of container.
+
+
+when declare position on ancestor and parent elements, the stuff they contain behave diffferently.
+e.g. declare position relative on a container, it becomes the new containing block for anything with position
+absolute on it in it, so the absolute positioned items move in relation to that now instead of the default viewport. 
+
+
+position: fixed = moved out of the flow as well. use top: 0 to bring to top. also width: 100% or left, right: 0;
+	maybe not use for headers anymore. maybe use for like a 'scroll to top' button that stays with viewer. 
+ 	usually fixed to the viewport itself. not usually changing the containing block. 
+
+position: sticky = pretty cool and useful. Behaves like block level element until it sticks. So shouldn't mess up 
+	a lot of your elements. Define top: 0 usually. Declare distance from the viewport that it will stick. e.g.
+ 	100px will make element stick when it is 100px away from vp and -100 px will make it stick when 100px past 	vp.
+  	*if using in conjunction with a flex container (you want the item to stick within the container and not necessarily the viewport, you have to define align-self to the item, otherwise the default property is stretch alignment within the flexbox and you won't see anything happen. 
+   	*won't escape it's div :) 
+
+animations and filters and transforms can change how a positioned item behaves. 
+
+filter can break a position of fixed. 
