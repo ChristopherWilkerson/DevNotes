@@ -1655,3 +1655,87 @@ Here are three common error types:
 
 
 Use stack overflow website for debugging answers if can't find on google
+
+
+
+CSS Functions
+min() and max()
+6 min
+
+If we want to create responsive elements, the min() and max() functions are great solutions for setting case-specific design constraints. The min() function will select the smallest value from a range of values and set that as the associated property’s value. The max() function will select the largest value from a range of values, which will be used as the associated property’s value.
+
+In the code snippet below, the width of the .content class is set to be 50vw. If the viewport width is greater than 1000 pixels (meaning that 50vw will be greater than 500px), the width of the content class will be set to a maximum width of 500px.
+
+.content {
+  width: 50vw;
+  max-width: 500px;
+}
+
+
+CSS Functions
+clamp()
+6 min
+
+Sometimes we will want to design elements to dynamically scale but also stay confined between an upper and lower bound. The clamp() function is ideal for achieving this!
+
+As its name suggests, the clamp() function enables a specified value to be kept within an upper and lower bound.
+
+.main-text{
+  font-size: clamp(12px, 1.5vw, 48px);
+}
+
+The clamp() function takes three parameters in a specific order:
+
+    The first argument specifies the minimum value. If the preferred value, given as the second argument, is less than this value, then the minimum value will be used. In the code snippet above, 12px is given as the minimum value of the font-size property.
+    The second argument specifies the preferred value. This value is used as long as it is greater than the value of the first argument (lower bound) and less than the value of the third argument (upper bound). In the code snippet above, 1.5vw is given as the preferred value of the font-size property.
+    The third argument specifies the maximum value. This value is the largest value that the property will be set to. In the code snippet above, 48px is given as the maximum value of the font-size property.
+
+
+
+CSS Functions
+Filter Functions
+10 min
+
+Like color functions, there are CSS functions specifically for the filter and backdrop-filter properties. These functions create a variety of visual effects for desired elements.
+
+We can use the brightness() function for the filter and backdrop-filter property to affect an element’s overall brightness by applying a linear multiplier to it. The brightness() function takes a single argument for the amount, which can be either a number or percentage. Any value under 100% or 1.0 darkens the element, and any value over 100% or 1.0 will brighten the element. The default value of brightness is 100% or 1.0.
+
+The blur() function applies a Gaussian blur to a specified element. The blur() function takes a single argument for the radius of the blur specified as a length. The argument of this function cannot be unitless unless a blur amount of 0 is being set.
+
+The last filter function we are going to learn about is drop-shadow(). This function applies a drop shadow effect to the desired element. Take a look at the syntax below:
+
+drop-shadow(offset-x offset-y blur-radius color)
+
+Both offset-x and offset-y are required arguments that determine the horizontal and vertical offset respectively. While blur-radius is an optional argument that determines the shadow’s blur radius—the larger the value, the more blurred the shadow. Finally, the color argument is also optional and determines the shadow’s color. Notice that it is not necessary to separate each of the function’s arguments with commas.
+
+Say we want to add a drop shadow to a <button> element. In the below code example, the horizontal offset is set to -10px and the vertical offset to 5px. It has a blur radius of 0.2rem and has a color of rgba(50, 200, 210, 0.6).
+
+button {
+  filter: drop-shadow(-10px 5px 0.2rem rgba(50, 200, 210, 0.6));
+}
+
+The drop shadow created on the button is offset vertically to the bottom and to the left. It also has a light blue color with 60% opacity.
+
+There are more CSS functions that can be used with the filter and backdrop-filter properties—take a look at the full list to learn more!
+
+
+CSS Functions
+Transform Functions
+7 min
+
+We can transform any HTML element using the transform property combined with CSS functions that scale, rotate, and even distort. These functions apply both 2D and 3D transformations to elements.
+
+The scale() function resizes an element, both horizontally and vertically, on a 2D plane. It can take either one or two parameters. If only one argument is given, scale(2) for instance, then the element will grow proportionally on both the x and y-axis. When two arguments are provided, the first argument scales along the x-axis, and the second scales along the y-axis. If you only want to scale an element on one of the two axes, either the scaleX() or the scaleY() function can be used.
+
+The rotate() function can be used for the transform property to rotate an element around a fixed point on a given 2D plane. The function accepts a single argument for the angle, which must be in degrees specified with the deg unit. Any positive angle means clockwise rotation, and a negative angle means counter-clockwise rotation. It is important to note that the origin of rotation defaults to the center of the element being rotated. For example, using rotate(180deg) as the value of transform property would rotate an element at its center, 180 degrees clockwise.
+
+Lastly, the translate() function moves an element from its initial position to another position on the page specified as the function’s arguments. The function can accept either one or two arguments—if one argument is provided, then the function will translate the element along the only x-axis by the specified amount. If two arguments are given, the element translates along the x-axis by the amount specified by the first argument and along the y-axis by the amount specified as the second argument.
+
+.shifted {
+  transform: translate(0px, 100px);
+}
+
+In the code example above, we wanted to shift the shifted element down the screen by 100px, so we used the transform property and set the translate() function as its value. The function’s x-axis argument was then set to be 0px and the y-axis to be 100px.
+
+
+## Using a scale on a hover is cool :)
