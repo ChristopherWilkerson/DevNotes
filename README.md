@@ -1428,4 +1428,13 @@ filter can break a position of fixed.
 
 
 
-More padding adds more background image to your page. If you want text on top of image, has to be background image. 
+More padding adds more background image to your page. If you want text on top of image, has to be background image.
+
+a:link
+a:visited
+a:hover
+a:active (rarely used but can if want)
+
+have to be in this order because css is reading it top to bottom.
+
+a:focus is good for accessibility! 
