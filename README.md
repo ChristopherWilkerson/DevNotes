@@ -1424,4 +1424,8 @@ position: sticky = pretty cool and useful. Behaves like block level element unti
 
 animations and filters and transforms can change how a positioned item behaves. 
 
-filter can break a position of fixed. 
+filter can break a position of fixed.
+
+
+
+More padding adds more background image to your page. If you want text on top of image, has to be background image. 
