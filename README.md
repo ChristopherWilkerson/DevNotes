@@ -1347,9 +1347,39 @@ To target by resolution, we can use the min-resolution and max-resolution media 
 The media query in the example above targets high resolution screens by making sure the screen resolution is at least 300 dots per inch. If the screen resolution query is met, then we can use CSS to display high resolution images and other media.
 
 
+## June 29th, 2024
+
+list-style-image: url('') 
+	creates image icon
+
+ list-style-position: inside;
+ 	to move numbers and bullets inside with items.
+
+  some browswers default to outside.
+
+ Don't usually need to put height as 100% 
+ or height or fit-content on block elements
 
 
-My Home
+don't just display flex all over the place
+
+
+don't rely so much on fixed numbers
+i.e flex-basis of 33% and 50% and 75% whatever
+can use flex-basis = 100%
+
+
+
+class names - don't do card-1 card-2 card-3 and defeat the purpose of classes. try to use reusable
+classes. more about site management and thought. more foresight. good for long run.
+
+
+instead of position: absolute, use transform: translate
+don't use negative margins unless have to
+
+
+
+** My Home
 Media Queries: Comma Separated List
 Narrative and Instructions
 Learn
