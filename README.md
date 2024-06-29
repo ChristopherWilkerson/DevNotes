@@ -1478,4 +1478,20 @@ Don't usually need to declare 100vw or 100vh
 
 Don't use viewport units for everything. Especially text. Makes things flow nicely, but not user friendly. 
 
+FLOAT AND CLEAR
+
 in general, float: left used more than float right. float right reverses order sometimes.
+
+clear always forces a new line. in general, clear: both is the one you want to use. clear: left only applies to float:left stuff. 
+
+
+**centering a div
+
+	if want all items on a page to be centered, can create a div that contains all the body or whatever you want,
+ then define a width. Then set margin-left: auto; and margin-right: auto;
+ 	this will make sure space on the left will always equal space on the right. 
+
+
+
+
+
