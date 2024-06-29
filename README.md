@@ -1491,6 +1491,15 @@ clear always forces a new line. in general, clear: both is the one you want to u
  then define a width. Then set margin-left: auto; and margin-right: auto;
  	this will make sure space on the left will always equal space on the right. 
 
+   	same as margin: 0 auto;
+    	width: 70%;
+     	max-width: 1000px;
+  
+
+
+
+
+
 
 
 
