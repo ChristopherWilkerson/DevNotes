@@ -1468,3 +1468,14 @@ a:active (rarely used but can if want)
 have to be in this order because css is reading it top to bottom.
 
 a:focus is good for accessibility! 
+
+
+
+
+## June 29th, 2024
+
+Don't usually need to declare 100vw or 100vh
+
+Don't use viewport units for everything. Especially text. Makes things flow nicely, but not user friendly. 
+
+in general, float: left used more than float right. float right reverses order sometimes.
