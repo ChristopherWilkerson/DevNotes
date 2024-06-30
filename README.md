@@ -1496,6 +1496,161 @@ clear always forces a new line. in general, clear: both is the one you want to u
      	max-width: 1000px;
   
 
+### Use markup when formatting a ReadMe otherwise you're just looking at words.
+
+The Script Element
+Defer attribute
+4 min
+
+When the HTML parser comes across a <script> element, it stops to load its content. Once loaded, the JavaScript code is executed and the HTML parser proceeds to parse the next element in the file. This can result in a slow load time for your website. HTML4 introduced the defer and async attributes of the <script> element to address the user wait-time in the website based on different scenarios.
+
+The defer attribute specifies scripts should be executed after the HTML file is completely parsed. When the HTML parser encounters a <script> element with the defer attribute, it loads the script but defers the actual execution of the JavaScript until after it finishes parsing the rest of the elements in the HTML file.
+
+Here is an example of the defer tag:
+
+<script src="example.js" defer></script> 
+
+When is defer useful?
+
+When a script contains functionality that requires interaction with the DOM, the defer attribute is the way to go. This way, it ensures that the entire HTML file has been parsed before the script is executed.
+
+
+The Script Element
+Async attribute
+3 min
+
+The async attribute loads and executes the script asynchronously with the rest of the webpage. This means that, similar to the defer attribute, the HTML parser will continue parsing the rest of the HTML as the script is downloaded in the background. However, with the async attribute, the script will not wait until the entire page is parsed: it will execute immediately after it has been downloaded. Here is an example of the async tag:
+
+<script src="example.js" async></script>
+
+When is it useful?
+
+async is useful for scripts that are independent of other scripts in order to function accordingly. Thus, if it does not matter exactly at which point the script file is executed, asynchronous loading is the most suitable option as it optimizes web page load time.
+
+
+
+JavaScript and the DOM
+Select and Modify Elements
+14 min
+
+In the previous exercise, we accessed the <body> element with the document keyword!
+
+What if we wanted to select a specific element besides the entire <body> element? The DOM interface allows us to access a specific element with CSS selectors.
+
+CSS selectors define the elements to which a set of CSS rules apply, but we can also use these same selectors to access DOM elements with JavaScript! Selectors can include a tag name, a class, or an ID.
+
+The .querySelector() method allows us to specify a CSS selector as a string and returns the first element that matches that selector. The following code would return the first paragraph in the document.
+
+document.querySelector('p');
+
+Along with .querySelector(), JavaScript has more targeted methods that select elements based on their class, id, or tag name.
+
+For example, if you want to access an element directly by its id, you can use the aptly named .getElementById() method:
+
+document.getElementById('bio').innerHTML = 'The description';
+
+In this example, we’ve selected the element with an ID of 'bio' and set its .innerHTML to the text 'The description'. Notice that the ID is passed as a string, wrapped in quotation marks (' ').
+
+There are also the .getElementsByClassName() and .getElementsByTagName() methods which return an array of elements, instead of just one element. You can use bracket notation to access individual elements of an array:
+
+// Set first element of .student class as 'Not yet registered'
+document.getElementsByClassName('student')[0].innerHTML = 'Not yet registered';
+
+// Set second <li> tag as 'Cedric Diggory'
+document.getElementsByTagName('li')[1].innerHTML = 'Cedric Diggory`;
+
+In the above example code, the first element with the 'student' class and the second <li> element have had their inner HTML changed.
+
+
+JavaScript and the DOM
+Style an Element
+10 min
+
+Another way to modify an element is by changing its CSS style. The .style property of a DOM element provides access to the inline style of that HTML tag.
+
+The syntax follows an element.style.property format, with the property representing a CSS property. For example, the following code selects the first element with a class of blue and assigns blue as the background-color:
+
+let blueElement = document.querySelector('.blue');
+blueElement.style.backgroundColor = 'blue';
+
+Unlike CSS, the DOM .style property does not implement a hyphen such as background-color, but rather camel case notation, backgroundColor. Check out this W3 Reference on the HTML DOM style object to see a list of how CSS properties are converted into JavaScript.
+
+The following chaining syntax would also work:
+
+document.querySelector('.blue').style.fontFamily = 'Roboto';
+
+
+
+avaScript and the DOM
+Create and Insert Elements
+12 min
+
+Just as the DOM allows scripts to modify existing elements, it also allows for the creation of new ones.
+
+The .createElement() method creates a new element based on the specified tag name passed into it as an argument. However, it does not append it to the document. It creates an empty element with no inner HTML.
+
+let paragraph = document.createElement('p');
+
+In the example code above, the .createElement() method takes 'p' as its argument which creates an empty <p> element and stores it as the paragraph variable.
+
+We can assign values to the properties of the newly created element like how we’ve done previously with existing elements.
+
+paragraph.id = 'info'; 
+paragraph.innerHTML = 'The text inside the paragraph';
+
+Above, we use the .id property to assign 'info' as ID and the .innerHTML property to set 'The text inside the paragraph' as the content of the <p> element.
+
+In order to create an element and add it to the web page, you must assign it to be the child of an element that already exists on the DOM, referred to as the parent element. We call this process appending. The .appendChild() method will add a child element as the parent element’s last child node. The following code appends the <p> element stored in the paragraph variable to the document body.
+
+document.body.appendChild(paragraph);
+
+The .appendChild() method does not replace the content inside of the parent, in this case, body. Rather, it appends the new element as the last child of that parent.
+
+
+
+JavaScript and the DOM
+Remove an Element
+7 min
+
+In addition to modifying or creating an element from scratch, the DOM also allows for the removal of an element. The .removeChild() method removes a specified child from a parent.
+
+let paragraph = document.querySelector('p');
+document.body.removeChild(paragraph);
+
+In the above example code, the .querySelector() method returns the first paragraph in the document. Then, the paragraph element is passed as an argument of the .removeChild() method chained to the parent of the paragraph—document.body. This removes the first paragraph from the document body.
+
+If you want to hide an element rather than completely deleting it, the .hidden property allows you to hide it by setting the property as true or false:
+
+document.getElementById('sign').hidden = true;
+
+The code above did not remove the element with ID of 'sign' from the DOM but rather, hid it.
+
+
+JavaScript and the DOM
+Add Click Interactivity
+7 min
+
+You can add interactivity to DOM elements by assigning a function to run based on an event. Events can include anything from a click to a user mousing over an element. We will learn more about events in the upcoming DOM Events with JavaScript lesson. For now, let’s take a look at how to modify an element when a click event happens.
+
+The .onclick property allows you to assign a function to run on when a click event happens on an element:
+
+let element = document.querySelector('button');
+
+element.onclick = function() { 
+  element.style.backgroundColor = 'blue' 
+};
+
+You can also assign the .onclick property to a function by name:
+
+let element = document.querySelector('button');
+
+function turnBlue() {
+   element.style.backgroundColor = 'blue';
+}
+
+element.onclick = turnBlue;
+
+In the above example code, when the <button> element detects a click event, the backgroundColor will change to 'blue'.
 
 
 
