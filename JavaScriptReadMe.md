@@ -1739,3 +1739,12 @@ In the code example above, we wanted to shift the shifted element down the scree
 
 
 ## Using a scale on a hover is cool :)
+
+## June 29th, 2024
+
+let and const have block-level scope.
+var is global. don't use much. 
+
+just use const unless know you're going to change it.
+
+*markdown*
