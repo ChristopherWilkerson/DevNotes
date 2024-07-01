@@ -1748,3 +1748,34 @@ var is global. don't use much.
 just use const unless know you're going to change it.
 
 *markdown*
+
+
+## July 1st, 2024
+
+
+      **looping through array easy
+const todos = [
+    {
+        id: 1,
+        text: 'Take out trash',
+        isCompleted: true
+    },
+    {
+        id: 2,
+        text: 'Brush teeth',
+        isCompleted: true
+    },
+    {
+        id: 3,
+        text: 'Meet with boss',
+        isCompleted: false
+    }
+
+];
+
+for (let todo of todos) {
+    console.log(todo);
+}**
+
+      console.log(todo.text) will return just the text: of each array so can loop through the array object and
+            single out certain keys or values. 
