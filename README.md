@@ -1709,6 +1709,18 @@ buttons usually
 
 
 
+## July 2nd, 2024
+
+if want flex box with equal sizes.
+
+display: flex on container
+	then flex-basis: 100%; on all the children
 
 
+sidebar and content area
+	display: flex; on container
+
+ then flex: 1 1 70%; on child one
+ min-width: 25ch; (25 characters width)
+ and  flex: 1 1 30%; on child two
 
