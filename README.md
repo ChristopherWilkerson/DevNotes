@@ -1652,7 +1652,60 @@ element.onclick = turnBlue;
 
 In the above example code, when the <button> element detects a click event, the backgroundColor will change to 'blue'.
 
+## Can add multiple background images using a comma inbetween URLS. Also commas in between background properties. 
 
+selectors:
+
+	[class*="bg-"] is a selector that selects all classes that begin with whatever is in quotes. in this case
+ 		all bg-
+
+using background-size: cover
+	and background-position: bottom left or whatver is cool
+
+
+ * won't select ::before and ::after
+   can use *::before and *::after for those and include.
+
++ selects adjacent siblings (one before it has to be a sibling to be selected...and first one won't be selected)
+  	good for setting margins
+
+> is direct child of our element
+
+~ selects general siblings (any item anywhere before, if sibling, will cause this item to be selected regardles if 
+	adjacent or not. First one will still not be selected)
+ 	also good for margins
+
+[] selects an attribute
+	good for inputs
+ a.[target] {}
+ i.e. a.[href="about.html"] can be selected even more specifically. 
+ a.[class|="link"] selects the attribute that begins with "link"
+ a.[href ^="http" similar to |= but more forgiving
+ a.[href *="http" selects the attribute that includes our string
+ a.[href $=".com" selects the attribute by what the attribute ends as.
+
+
+ margin-left, margin-right: auto centers
+ margin-left, shoots all to right
+
+ margin-left: auto on two different elements in the same block or flexbox will lead to fun stuff.
+ centered both but seperate.
+
+
+ display:
+ 	outer values -
+  	display: inline;
+   	display: block;
+
+    	innter values -
+     	display: flex;
+      	display: grid;
+       	display: table;
+	display: flow-root;
+ 	display: ruby;
+
+buttons usually 
+	display: inline-block
 
 
 
