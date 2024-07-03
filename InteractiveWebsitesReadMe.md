@@ -596,5 +596,7 @@ However, minimalism can go too far, especially if it obscures how users should n
 Taking into consideration color choices, contrast, and font legibility will help you evaluate new design trends, and reduce the chance of new designs introducing accessibility barriers.
 
 
+## July 2, 2024
 
+the alt "" can be left empty for decorative images and things, but shouldn't be left out entirely.
 
