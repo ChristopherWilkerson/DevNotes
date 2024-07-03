@@ -1779,3 +1779,23 @@ for (let todo of todos) {
 
       console.log(todo.text) will return just the text: of each array so can loop through the array object and
             single out certain keys or values. 
+
+
+## July 2nd, 2024
+
+querySelector &
+
+querySelectorAll = selects all elements with that tag or class 
+      querySelectorAll(.class)
+            gives us a collection we can run array methods on
+
+
+.classList.add('') will add a class to the css of the element you select.
+
+.innerHTML will add html elements 
+      .innerHTML = '<h2>HEllo</h2>
+
+.textContent will change text
+
+.innerText will also change text. 
+      
