@@ -1724,3 +1724,19 @@ sidebar and content area
  min-width: 25ch; (25 characters width)
  and  flex: 1 1 30%; on child two
 
+
+## July 3rd, 2024 ##
+
+Relative colors on custom properties
+
+hsl(from #ff0000 h s l / .5);
+	returns a color that is 50% of the opacity value of #ff0000
+
+ useful when using customs
+ 	hsl(var(--main-color) h s l / .5);
+  		will return 50% opacity of --main-color
+can also do calcs on hsls or rgbs
+	hsl(var(--main-color) h s calc(l -50) / .5); will darken the main color
+
+ background-color: color-mix(in oklab, color1, color2);
+ 	can use oklch, srgb, hsl, or whatever color format to mix but have to specify as first parameter. 
