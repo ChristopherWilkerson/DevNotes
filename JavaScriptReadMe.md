@@ -1934,4 +1934,153 @@ In the example above, we create a new instance the Cat class, named bryceCat. We
 
 In the example above, we abandoned best practices by calling our _name property directly. In the next exercise, we’ll address this by calling an inherited getter method for our name property.
 
-      
+
+
+
+Classes
+Inheritance V
+10 min
+
+In addition to the inherited features, child classes can contain their own properties, getters, setters, and methods.
+
+Below, we will add a usesLitter getter. The syntax for creating getters, setters, and methods is the same as it is in any other class.
+
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+    
+  get usesLitter() {
+    return this._usesLitter;
+  }
+}
+
+In the example above, we create a usesLitter getter in the Cat class that returns the value saved to _usesLitter.
+
+Compare the Cat class above to the one we created without inheritance:
+
+class Cat {
+  constructor(name, usesLitter) {
+    this._name = name;
+    this._usesLitter = usesLitter;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get usesLitter() {
+    return this._usesLitter;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }   
+  
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
+
+We decreased the number of lines required to create the Cat class by about half. Yes, it did require an extra class (Animal), making the reduction in the size of our Cat class seem moot. However, the benefits (time saved, readability, efficiency) of inheritance grow as the number and size of your subclasses increase.
+
+One benefit is that when you need to change a method or property that multiple classes share, you can change the parent class, instead of each subclass.
+
+Before we move past inheritance, take a moment to see how we would create an additional subclass, called Dog.
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name);
+  }
+}
+
+This Dog class has access to the same properties, getters, setters, and methods as the Dog class we made without inheritance, and is a quarter the size.
+
+Now that we’ve abstracted animal daycare features, it’s easy to see how you can extend Animal to support other classes, like Rabbit, Bird or even Snake.
+Instructions
+
+    Checkpoint 1 Passed
+
+    1.
+
+    Use the properties and methods below to help you complete the tasks that follow.
+    Nurse
+        Properties: _name, _remainingVacationDays (set to 20 inside the constructor()), _certifications
+        Methods: .takeVacationDays(), .addCertification()
+
+    Under the Nurse constructor(), add a getter that returns the value saved to the Nurse instance’s _certifications.
+
+Checkpoint 2 Passed
+
+2.
+
+Add a method called addCertification under the certifications getter.
+
+The method should accept one input (newCertification). Inside the method, use the push method to add the newCertification value to the nurse’s certifications array.
+Checkpoint 3 Passed
+
+3.
+
+At the bottom of main.js call the .addCertification() method on nurseOlynyk with a parameter of 'Genetics'.
+Checkpoint 4 Passed
+
+4.
+
+Log the value saved to the certifications property of nurseOlynyk.
+
+
+
+Classes
+Static Methods
+8 min
+
+Sometimes you will want a class to have methods that aren’t available in individual instances, but that you can call directly from the class.
+
+Take the Date class, for example — you can both create Date instances to represent whatever date you want, and call static methods, like Date.now() which returns the current date, directly from the class. The .now() method is static, so you can call it directly from the class, but not from an instance of the class.
+
+Let’s see how to use the static keyword to create a static method called generateName method in our Animal class:
+
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  static generateName() {
+    const names = ['Angel', 'Spike', 'Buffy', 'Willow', 'Tara'];
+    const randomNumber = Math.floor(Math.random()*5);
+    return names[randomNumber];
+  }
+} 
+
+In the example above, we create a static method called .generateName() that returns a random name when it’s called. Because of the static keyword, we can only access .generateName() by appending it to the Animal class.
+
+We call the .generateName() method with the following syntax:
+
+console.log(Animal.generateName()); // returns a name
+
+You cannot access the .generateName() method from instances of the Animal class or instances of its subclasses (See below).
+
+const tyson = new Animal('Tyson'); 
+tyson.generateName(); // TypeError
+
+The example above will result in an error, because you cannot call static methods (.generateName()) on an instance (tyson).
+
+
+Classes
+Review: Classes
+2 min
+
+Way to go! Let’s review what you learned.
+
+    Classes are templates for objects.
+    JavaScript calls a constructor method when we create a new instance of a class.
+    Inheritance is when we create a parent class with properties and methods that we can extend to child classes.
+    We use the extends keyword to create a subclass.
+    The super keyword calls the constructor() of a parent class.
+    Static methods are called on the class, but not on instances of the class.
+
+In completing this lesson, you’ve taken one step closer to writing efficient, production-level JavaScript. Good luck as you continue to develop your skills and move into intermediate-level concepts.
+
