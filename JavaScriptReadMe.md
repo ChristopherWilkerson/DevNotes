@@ -1798,4 +1798,140 @@ querySelectorAll = selects all elements with that tag or class
 .textContent will change text
 
 .innerText will also change text. 
+
+## July 3rd, 2024
+
+classes
+
+class Surgeon {
+  constructor(name, department){
+    this.name = name;
+    this.department = department;
+  }
+
+}
+
+Classes
+Instance
+6 min
+
+Now, we’re ready to create class instances. An instance is an object that contains the property names and methods of a class, but with unique property values. Let’s look at our Dog class example.
+
+class Dog {
+  constructor(name) {
+    this.name = name;
+    this.behavior = 0;
+  } 
+}
+
+const halley = new Dog('Halley'); // Create new Dog instance
+console.log(halley.name); // Log the name value saved to halley
+// Output: 'Halley'
+
+Below our Dog class, we use the new keyword to create an instance of our Dog class. Let’s consider the line of code step-by-step.
+
+    We create a new variable named halley that will store an instance of our Dog class.
+    We use the new keyword to generate a new instance of the Dog class. The new keyword calls the constructor(), runs the code inside of it, and then returns the new instance.
+    We pass the 'Halley' string to the Dog constructor, which sets the name property to 'Halley'.
+    Finally, we log the value saved to the name key in our halley object, which logs 'Halley' to the console.
+
+Now you know how to create instances. In the next exercise, you will learn how to add getters, setters, and methods.
+
+
+class Surgeon {
+  constructor(name, department) {
+    this.name = name;
+    this.department = department;
+  }
+}
+
+const surgeonRomero = new Surgeon('Francisco Romero', 'Cardiovascular');
+
+const surgeonJackson = new Surgeon('Ruth Jackson', 'Orthopedics');
+
+console.log(surgeonJackson);
+
+
+Classes
+Methods
+13 min
+
+At this point, we have a Dog class that spins up objects with name and behavior properties. Below, we will add getters and a method to bring our class to life.
+
+Class method and getter syntax is the same as it is for objects except you can not include commas between methods.
+
+class Dog {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }
+  
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
+
+In the example above, we add getter methods for name and behavior. Notice, we also prepended our property names with underscores (_name and _behavior), which indicate these properties should not be accessed directly. Under the getters, we add a method named .incrementBehavior(). When you call .incrementBehavior() on a Dog instance, it adds 1 to the _behavior property. Between each of our methods, we did not include commas.
+
+
+Classes
+Inheritance III
+14 min
+
+We’ve abstracted the shared properties and methods of our Cat and Dog classes into a parent class called Animal (See below).
+
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }
+    
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+
+Now that we have these shared properties and methods in the parent Animal class, we can extend them to the subclass, Cat.
+
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+}
+
+In the example above, we create a new class named Cat that extends the Animal class. Let’s pay special attention to our new keywords: extends and super.
+
+    The extends keyword makes the methods of the animal class available inside the cat class.
+    The constructor, called when you create a new Cat object, accepts two arguments, name and usesLitter.
+    The super keyword calls the constructor of the parent class. In this case, super(name) passes the name argument of the Cat class to the constructor of the Animal class. When the Animal constructor runs, it sets this._name = name; for new Cat instances.
+    _usesLitter is a new property that is unique to the Cat class, so we set it in the Cat constructor.
+
+Notice, we call super on the first line of our constructor(), then set the usesLitter property on the second line. In a constructor(), you must always call the super method before you can use the this keyword — if you do not, JavaScript will throw a reference error. To avoid reference errors, it is best practice to call super on the first line of subclass constructors.
+
+Below, we create a new Cat instance and call its name with the same syntax as we did with the Dog class:
+
+const bryceCat = new Cat('Bryce', false); 
+console.log(bryceCat._name); // output: Bryce
+
+In the example above, we create a new instance the Cat class, named bryceCat. We pass it 'Bryce' and false for our name and usesLitter arguments. When we call console.log(bryceCat._name) our program prints, Bryce.
+
+In the example above, we abandoned best practices by calling our _name property directly. In the next exercise, we’ll address this by calling an inherited getter method for our name property.
+
       
