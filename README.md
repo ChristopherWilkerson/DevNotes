@@ -1738,5 +1738,7 @@ hsl(from #ff0000 h s l / .5);
 can also do calcs on hsls or rgbs
 	hsl(var(--main-color) h s calc(l -50) / .5); will darken the main color
 
- background-color: color-mix(in oklab, color1, color2);
- 	can use oklch, srgb, hsl, or whatever color format to mix but have to specify as first parameter. 
+ background-color: color-mix(in oklab, color1 40%, color2 60%);
+ 	can use oklch, srgb, hsl, or whatever color format to mix but have to specify as first parameter.
+
+  
