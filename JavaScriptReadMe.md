@@ -2105,3 +2105,59 @@ console.log(new Error('Your password is too weak.'));
 // Prints: Error: Your password is too weak.
 
 Keep in mind that creating an error is not the same as throwing an error. A thrown error will cause the program to stop running. We’ll cover how to throw our created errors in the next exercise!
+
+
+
+Learn JavaScript: Error Handling
+The throw Keyword
+2 min
+
+Creating an error doesn’t cause our program to stop — remember, an error must be thrown for it to halt the program.
+
+To throw an error in JavaScript, we use the throw keyword like so:
+
+throw Error('Something wrong happened');
+// Error: Something wrong happened
+
+When we use the throw keyword, the error is thrown and code after the throw statement will not execute. Take for example:
+
+throw Error('Something wrong happened');
+// Error: Something wrong happened
+
+console.log('This will never run');
+
+After throw Error('Something wrong happened'); is executed and the error object is thrown, the console.log() statement will not run (just like when a built-in JavaScript error was thrown!).
+
+In the next lesson we will cover how to handle an error so that the rest of our code can run!
+
+
+
+Learn JavaScript: Error Handling
+The try...catch Statement
+5 min
+
+Up to this point, thrown errors have caused our program to stop running. But, we have the ability to anticipate and handle these errors by writing code to address the error and allow our program to continue running.
+
+In JavaScript, we use try...catch statement to anticipate and handle errors. Take a look at example below:
+
+try {
+  throw Error('This error will get caught');
+} catch (e) {
+  console.log(e);
+}
+// Prints: This error will get caught
+
+console.log('The thrown error that was caught in the try...catch statement!');
+// Prints: 'The thrown error that was caught in the try...catch statement!'
+
+Now, let’s break down what happened in the try...catch statement above:
+
+    We have code that follows try inside curly braces {} known as the try block.
+    Inside the try block we insert code that we anticipate might throw an error.
+    Since we want to see what happens if an error is thrown in the try block, we throw an error with the message 'This error will get caught'.
+    Following the try block is the catch statement which accepts the thrown error from the try block . The e represents the thrown error.
+    The curly braces that follow catch(e) is known as the catch block and contains code that executes to handle the error.
+    Since the error is caught, our console.log() after the try...catch statement prints 'The thrown error that was caught in the try...catch statement!'.
+
+Generally speaking, in a try...catch statement, we evaluate code in the try block and if the code throws an error, the code inside the catch block will handle the error for us. The provided example just showcases how a try...catch statement works because we know an error is being thrown. Let’s first practice writing our own try...catch statement and afterwards we will go over a more practical usage of try...catch.
+
