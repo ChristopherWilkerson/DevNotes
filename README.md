@@ -1741,4 +1741,10 @@ can also do calcs on hsls or rgbs
  background-color: color-mix(in oklab, color1 40%, color2 60%);
  	can use oklch, srgb, hsl, or whatever color format to mix but have to specify as first parameter.
 
-  
+
+  ## July 6th, 2024 ##
+
+css 
+  Max-content
+  min-content
+  and fit-content
