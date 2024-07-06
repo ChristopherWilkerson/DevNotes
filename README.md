@@ -1746,5 +1746,10 @@ can also do calcs on hsls or rgbs
 
 css 
   Max-content
-  min-content
+  min-content - good for setting grid properties 
   and fit-content
+
+fit-content is like the best of both worlds in this case.
+
+
+always want to have img max width 100% when building responsive layouts.
