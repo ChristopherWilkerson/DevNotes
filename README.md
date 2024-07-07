@@ -1753,3 +1753,11 @@ fit-content is like the best of both worlds in this case.
 
 
 always want to have img max width 100% when building responsive layouts.
+
+# beautiful grid style #
+
+.product-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+}
