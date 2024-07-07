@@ -2185,3 +2185,33 @@ Let’s say we expect to grab an array from a database but the information we ge
 
 However, we can use a try...catch statement to handle the thrown error for us which allows our program to continue running and we receive a message knowing what went wrong! Let’s see how we can implement this in our code.
 
+
+
+## July 6th, 2024
+
+
+Automate and Organize Tests
+describe and it blocks
+8 min
+
+In Mocha we group tests using the describe function and define tests using the it function. These two functions can be used to make your test suite complete, maintainable, and expressive in the following ways:
+
+    Structure your test suite: you can organize tests into nested groups that reflect the structure of your implementation code.
+
+    Provide informative messages: you can define your tests using human-readable strings.
+
+If you are testing a Math object with the method .max, you could use the following test code.
+
+describe('Math', () => {
+  describe('.max', () => {
+    it('returns the argument with the highest value', () => {
+      // Your test goes here
+    });
+    it('returns -Infinity when no arguments are provided', () => {
+      // Your test goes here
+    });
+  });
+});
+
+Both the describe and it functions accept two parameters: a descriptive string and a callback function. Though the functions are flexible, they are commonly used in the structure above: nest describe blocks to resemble the structure of your implementation code and write individual tests in it blocks. This makes your test suite isolated, maintainable, and expressive.
+
