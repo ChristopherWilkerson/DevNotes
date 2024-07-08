@@ -2238,3 +2238,33 @@ In this case 6 - 1 === 5 evaluates to true, so no error is thrown.
 
 If an argument passed to assert.ok() evaluates to false, an AssertionError is thrown. The error communicates to Mocha that a test has failed, and Mocha logs the error message to the console.
 
+
+
+Write Expressive Tests
+assert.strictEqual
+4 min
+
+Take a look at the code below. Will these assertions throw errors?
+
+const a = 3;
+const b = '3';
+assert.ok(a == b);
+assert.ok(a === b);
+
+    The first assertion will not throw an error because it uses loose (==) equality. It performs a type conversion when comparing two things.
+    The second will throw an error because it uses strict (===) equality. It returns false if the types differ.
+
+If you need to be strict in evaluating equality, you can use assert.strictEqual().
+
+    assert.equal() performs a == comparison
+    assert.strictEqual() performs a === comparison
+
+Compare the following code to the first example. This code performs the same verifications, but it is more expressive. Without parsing any logic, a reader would know the intention of your tests by reading the method names.
+
+const a = 3;
+const b = '3';
+assert.equal(a, b);
+assert.strictEqual(a, b);
+
+    July 2021 Update: the assert documentation recommends always using assert.strictEqual() instead of assert.equal().
+
