@@ -2215,3 +2215,7 @@ describe('Math', () => {
 
 Both the describe and it functions accept two parameters: a descriptive string and a callback function. Though the functions are flexible, they are commonly used in the structure above: nest describe blocks to resemble the structure of your implementation code and write individual tests in it blocks. This makes your test suite isolated, maintainable, and expressive.
 
+
+## July 7th, 2024 ##
+
+You can do it :) Don't get too discouraged
