@@ -2503,5 +2503,175 @@ All promises eventually settle, enabling us to write logic for what to do if the
 
 
 
+JavaScript Promises
+The Node setTimeout() Function
+12 min
+
+Knowing how to construct a promise is useful, but most of the time, knowing how to consume, or use, promises will be key. Rather than constructing promises, you’ll be handling Promise objects returned to you as the result of an asynchronous operation. These promises will start off pending but settle eventually.
+
+Moving forward, we’ll be simulating this by providing you with functions that return promises which settle after some time. To accomplish this, we’ll be using setTimeout(). setTimeout() is a Node API (a comparable API is provided by web browsers) that uses callback functions to schedule tasks to be performed after a delay. setTimeout() has two parameters: a callback function and a delay in milliseconds.
+
+const delayedHello = () => {
+  console.log('Hi! This is an asynchronous greeting!');
+};
+
+setTimeout(delayedHello, 2000);
+
+Here, we invoke setTimeout() with the callback function delayedHello() and 2000. In at least two seconds delayedHello() will be invoked. But why is it “at least” two seconds and not exactly two seconds?
+
+This delay is performed asynchronously—the rest of our program won’t stop executing during the delay. Asynchronous JavaScript uses something called the event-loop. After two seconds, delayedHello() is added to a line of code waiting to be run. Before it can run, any synchronous code from the program will run. Next, any code in front of it in the line will run. This means it might be more than two seconds before delayedHello() is actually executed.
+
+Let’s look at how we’ll be using setTimeout() to construct asynchronous promises:
+
+const returnPromiseFunction = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(( ) => {resolve('I resolved!')}, 1000);
+  });
+};
+
+const prom = returnPromiseFunction();
+
+In the example code, we invoked returnPromiseFunction() which returned a promise. We assigned that promise to the variable prom. Similar to the asynchronous promises you may encounter in production, prom will initially have a status of pending.
+
+Let’s explore setTimeout() a bit more.
+
+
+
+JavaScript Promises
+Consuming Promises
+4 min
+
+The initial state of an asynchronous promise is pending, but we have a guarantee that it will settle. How do we tell the computer what should happen then? Promise objects come with an aptly named .then() method. It allows us to say, “I have a promise, when it settles, then here’s what I want to happen…”
+
+In the case of our dishwasher promise, the dishwasher will run then:
+
+    If our promise rejects, this means we have dirty dishes, and we’ll add soap and run the dishwasher again.
+    If our promise fulfills, this means we have clean dishes, and we’ll put the dishes away.
+
+.then() is a higher-order function— it takes two callback functions as arguments. We refer to these callbacks as handlers. When the promise settles, the appropriate handler will be invoked with that settled value.
+
+    The first handler, sometimes called onFulfilled, is a success handler, and it should contain the logic for the promise resolving.
+    The second handler, sometimes called onRejected, is a failure handler, and it should contain the logic for the promise rejecting.
+
+We can invoke .then() with one, both, or neither handler! This allows for flexibility, but it can also make for tricky debugging. If the appropriate handler is not provided, instead of throwing an error, .then() will just return a promise with the same settled value as the promise it was called on. One important feature of .then() is that it always returns a promise. We’ll return to this in more detail in a later exercise and explore why it’s so important.
+
+
+JavaScript Promises
+Using catch() with Promises
+10 min
+
+One way to write cleaner code is to follow a principle called separation of concerns. Separation of concerns means organizing code into distinct sections each handling a specific task. It enables us to quickly navigate our code and know where to look if something isn’t working.
+
+Remember, .then() will return a promise with the same settled value as the promise it was called on if no appropriate handler was provided. This implementation allows us to separate our resolved logic from our rejected logic. Instead of passing both handlers into one .then(), we can chain a second .then() with a failure handler to a first .then() with a success handler and both cases will be handled.
+
+prom
+ .then((resolvedValue) => {
+   console.log(resolvedValue);
+ })
+ .then(null, (rejectionReason) => {
+   console.log(rejectionReason);
+ });
+
+Since JavaScript doesn’t mind whitespace, we follow a common convention of putting each part of this chain on a new line to make it easier to read. To create even more readable code, we can use a different promise function: .catch().
+
+The .catch() function takes only one argument, onRejected. In the case of a rejected promise, this failure handler will be invoked with the reason for rejection. Using .catch() accomplishes the same thing as using a .then() with only a failure handler.
+
+Let’s look at an example using .catch():
+
+prom
+ .then((resolvedValue) => {
+   console.log(resolvedValue);
+ })
+ .catch((rejectionReason) => {
+   console.log(rejectionReason);
+ });
+
+Let’s break down what’s happening in the example code:
+
+    prom is a promise which randomly either resolves with 'Yay!' or rejects with 'Ohhh noooo!'.
+    We pass a success handler to .then() and a failure handler to .catch().
+    If the promise resolves, .then()‘s success handler will be invoked with 'Yay!'.
+    If the promise rejects, .then() will return a promise with the same rejection reason as the original promise and .catch()‘s failure handler will be invoked with that rejection reason.
+
+JavaScript Promises
+Avoiding Common Mistakes
+9 min
+
+Promise composition allows for much more readable code than the nested callback syntax that preceded it. However, it can still be easy to make mistakes. In this exercise, we’ll go over two common mistakes with promise composition.
+
+Mistake 1: Nesting promises instead of chaining them.
+
+returnsFirstPromise()
+.then((firstResolveVal) => {
+  return returnsSecondValue(firstResolveVal)
+    .then((secondResolveVal) => {
+      console.log(secondResolveVal);
+    })
+})
+
+Let’s break down what’s happening in the above code:
+
+    We invoke returnsFirstPromise() which returns a promise.
+    We invoke .then() with a success handler.
+    Inside the success handler, we invoke returnsSecondValue() with firstResolveVal which will return a new promise.
+    We invoke a second .then() to handle the logic for the second promise settling all inside the first then()!
+    Inside that second .then(), we have a success handler which will log the second promise’s resolved value to the console.
+
+Instead of having a clean chain of promises, we’ve nested the logic for one inside the logic of the other. Imagine if we were handling five or ten promises!
+
+Mistake 2: Forgetting to return a promise.
+
+returnsFirstPromise()
+.then((firstResolveVal) => {
+  returnsSecondValue(firstResolveVal)
+})
+.then((someVal) => {
+  console.log(someVal);
+})
+
+Let’s break down what’s happening in the example:
+
+    We invoke returnsFirstPromise() which returns a promise.
+    We invoke .then() with a success handler.
+    Inside the success handler, we create our second promise, but we forget to return it!
+    We invoke a second .then(). It’s supposed to handle the logic for the second promise, but since we didn’t return, this .then() is invoked on a promise with the same settled value as the original promise!
+
+Since forgetting to return our promise won’t throw an error, this can be a really tricky thing to debug!
+
+
+JavaScript Promises
+Using Promise.all()
+18 min
+
+When done correctly, promise composition is a great way to handle situations where asynchronous operations depend on each other or execution order matters. What if we’re dealing with multiple promises, but we don’t care about the order? Let’s think in terms of cleaning again.
+
+For us to consider our house clean, we need our clothes to dry, our trash bins emptied, and the dishwasher to run. We need all of these tasks to complete but not in any particular order. Furthermore, since they’re all getting done asynchronously, they should really all be happening at the same time!
+
+To maximize efficiency we should use concurrency, multiple asynchronous operations happening together. With promises, we can do this with the function Promise.all().
+
+Promise.all() accepts an array of promises as its argument and returns a single promise. That single promise will settle in one of two ways:
+
+    If every promise in the argument array resolves, the single promise returned from Promise.all() will resolve with an array containing the resolve value from each promise in the argument array.
+    If any promise from the argument array rejects, the single promise returned from Promise.all() will immediately reject with the reason that promise rejected. This behavior is sometimes referred to as failing fast.
+
+Let’s look at a code example:
+
+let myPromises = Promise.all([returnsPromOne(), returnsPromTwo(), returnsPromThree()]);
+
+myPromises
+  .then((arrayOfValues) => {
+    console.log(arrayOfValues);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
+
+Let’s break down what’s happening:
+
+    We declare myPromises assigned to invoking Promise.all().
+    We invoke Promise.all() with an array of three promises— the returned values from functions.
+    We invoke .then() with a success handler which will print the array of resolved values if each promise resolves successfully.
+    We invoke .catch() with a failure handler which will print the first rejection message if any promise rejects.
+
 
 
