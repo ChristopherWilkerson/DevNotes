@@ -2461,5 +2461,47 @@ While we wait for our alert to chime in every 5 minutes, our users could still u
 
 With setInterval(), we can programmatically create an alarm, a countdown timer, set the frequency of an animation, and so much more! 
 
+Thanks to the event loop, JavaScript is a single-threaded, event-driven language that can run non-blocking code asynchronously. The Event Loop can be summarized as: when code is executed, it is handled by the heap and call stack, which interact with Node and Web APIs. Those APIs enable concurrency and pass asynchronous messages back to the stack via an event queue. The event queue’s interaction with the call stack is managed by an event loop. All together, those parts maintain the order of code execution when we run asynchronous functions. 
+
+
+Concurrency in JavaScript
+
+Usually when we think about concurrency in programming, it means that two or more procedures are executed at the same time on the same shared resources. Since JavaScript is single-threaded, as we saw in the for loop example, we’ll never have that flavor of “true” concurrency. However, we can emulate concurrency using the event loop.
+
+
+Understand the Components of the Event Loop
+
+The event loop is made up of these parts:
+
+    Memory Heap
+    Call Stack
+    Event Queue
+    Event Loop
+    Node or Web APIs
+
+Let’s take a closer look at each part before we put it all together.
+
+JavaScript Promises
+What is a Promise?
+2 min
+
+Promises are objects that represent the eventual outcome of an asynchronous operation. A Promise object can be in one of three states:
+
+    Pending: The initial state— the operation has not completed yet.
+    Fulfilled: The operation has completed successfully and the promise now has a resolved value. For example, a request’s promise might resolve with a JSON object as its value.
+    Rejected: The operation has failed and the promise has a reason for the failure. This reason is usually an Error of some kind.
+
+We refer to a promise as settled if it is no longer pending— it is either fulfilled or rejected. Let’s think of a dishwasher as having the states of a promise:
+
+    Pending: The dishwasher is running but has not completed the washing cycle.
+    Fulfilled: The dishwasher has completed the washing cycle and is full of clean dishes.
+    Rejected: The dishwasher encountered a problem (it didn’t receive soap!) and returns unclean dishes.
+
+If our dishwashing promise is fulfilled, we’ll be able to perform related tasks, such as unloading the clean dishes from the dishwasher. If it’s rejected, we can take alternate steps, such as running it again with soap or washing the dishes by hand.
+
+All promises eventually settle, enabling us to write logic for what to do if the promise fulfills or if it rejects.
+
+
+
 
 
