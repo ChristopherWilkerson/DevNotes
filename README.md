@@ -1761,3 +1761,9 @@ always want to have img max width 100% when building responsive layouts.
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 1rem;
 }
+
+## July 9th, 2024 ##
+
+Collapsing margins don't apply with display: grid or display:flex
+
+
