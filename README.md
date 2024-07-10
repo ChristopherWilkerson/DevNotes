@@ -1767,3 +1767,8 @@ always want to have img max width 100% when building responsive layouts.
 Collapsing margins don't apply with display: grid or display:flex
 
 
+Use majority margin-bottom that way you always know where your margins are coming from.
+
+box-sizing: content-box is default
+box-sizing: border-box is useful to keep sizes consistent with how you want
+
