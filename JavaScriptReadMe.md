@@ -2741,3 +2741,6 @@ can set the url in a variable
 
 .json() also returns a promise if calling from an api
       so will have to await variable.json() as well to get it to return a desirable result. 
+
+
+
