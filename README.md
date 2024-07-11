@@ -1772,3 +1772,24 @@ Use majority margin-bottom that way you always know where your margins are comin
 box-sizing: content-box is default
 box-sizing: border-box is useful to keep sizes consistent with how you want
 
+
+
+## July 11th, 2024 ##
+
+when have a link that you want to use as a button
+use
+	display: inline-block;
+
+anytime have background color, give padding.
+
+ line-height and line-spacing good for making words readable.
+
+
+ transform: scale(1.1) for hover state of buttons :) 
+
+
+ buttons can use :focus-visible
+ instead of :focus
+
+styling forms :)
+ :accent-color;
