@@ -2732,3 +2732,12 @@ Cool weather app with actual api data! :)
                         
                         start();
 
+
+
+## July 10th, 2024 ##
+
+can set the url in a variable
+      const name = url
+
+.json() also returns a promise if calling from an api
+      so will have to await variable.json() as well to get it to return a desirable result. 
