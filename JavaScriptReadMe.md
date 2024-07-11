@@ -2674,4 +2674,61 @@ Let’s break down what’s happening:
     We invoke .catch() with a failure handler which will print the first rejection message if any promise rejects.
 
 
+## July 9th, 2024 ##
+
+Async Await
+The await Operator
+13 min
+
+In the last exercise, we covered the async keyword. By itself, it doesn’t do much; async functions are almost always used with the additional keyword await inside the function body.
+
+The await keyword can only be used inside an async function. await is an operator: it returns the resolved value of a promise. Since promises resolve in an indeterminate amount of time, await halts, or pauses, the execution of our async function until a given promise is resolved.
+
+In most situations, we’re dealing with promises that were returned from functions. Generally, these functions are through a library, and, in this lesson, we’ll be providing them. We can await the resolution of the promise it returns inside an async function. In the example below, myPromise() is a function that returns a promise which will resolve to the string "I am resolved now!".
+
+async function asyncFuncExample(){
+  let resolvedValue = await myPromise();
+  console.log(resolvedValue);
+}
+
+asyncFuncExample(); // Prints: I am resolved now!
+
+Within our async function, asyncFuncExample(), we use await to halt our execution until myPromise() is resolved and assign its resolved value to the variable resolvedValue. Then we log resolvedValue to the console. We’re able to handle the logic for a promise in a way that reads like synchronous code.
+
+
+promise.finally runs after your .then and your .catch and will run after all other promises are fulfilled (whether successful or not) and is good for cleaning up code or removing event listeners or something of the like. 
+
+
+using await in an async function is powerful because you can set the resolve of the promise to a variable and 
+use it for anything else.
+
+async await have to be used together
+
+just parsed my first api for weather data on my own comp :)
+
+async/await only affects the promise receiver. The promise creator stays the same.
+
+you can await any function that returns a promise
+
+most any function can be converted into an async function
+
+all async functions return a promise by default
+
+
+Cool weather app with actual api data! :) 
+
+                              const weatherLocation = document.querySelector('.weather-container');
+                        const temperature = document.querySelector('.temperature');
+                        const emojiSelector = document.querySelector('.emoji');
+                        
+                        async function start() {
+                            const data = await fetch("https://api.weather.gov/gridpoints/DMX/91,87/forecast")
+                            const result = await data.json();
+                            weatherLocation.innerHTML = result.properties.periods[1].detailedForecast;
+                            temperature.innerHTML = result.properties.periods[1].temperature;
+                            
+                        };
+                        
+                        
+                        start();
 
