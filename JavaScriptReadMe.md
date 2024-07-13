@@ -2743,4 +2743,4 @@ can set the url in a variable
       so will have to await variable.json() as well to get it to return a desirable result. 
 
 
-
+## July 12th 2024 ##
