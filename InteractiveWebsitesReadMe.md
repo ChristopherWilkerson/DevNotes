@@ -600,3 +600,33 @@ Taking into consideration color choices, contrast, and font legibility will help
 
 the alt "" can be left empty for decorative images and things, but shouldn't be left out entirely.
 
+
+
+## July 12, 2024 ## 
+
+clip-path can be used to make cool shapes.
+
+perspective on parent div makes for cool effect. could possibly use for garden app. just enter a px value
+
+styling input forms 
+
+input {
+  caret-color: red;
+}
+
+input:focus {
+  outline = solid 1px red;
+}
+
+
+pseudo classes are powerful. can eliminate need for javascript
+
+.class:is(h1, h2, h4) {}
+.class:where(h1, h2, h4) {}
+
+.class:has(button) .content {
+} will only target .content of .class that has button
+
+input::placeholder {
+  color: red;
+  }
