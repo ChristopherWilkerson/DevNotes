@@ -640,3 +640,20 @@ Line height Headers => 1.1- 1.3 times the font size.
             Body => 1.2- 1.6 times the font size.
 
 Letter spacing headers =>  -1% to -3%
+
+
+line word length = 50 to 75 characters
+
+
+try to use just 2 font sizes for entire design. Use font-weight and color to impact the style.
+
+
+recommended way to use background-color is in the BODY tag.
+
+order property on flex-box items real easy.
+
+just assign
+order: 1; 
+order: 2;
+order: etc; 
+  on your flex box children.
