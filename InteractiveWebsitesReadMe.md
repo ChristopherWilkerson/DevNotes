@@ -630,3 +630,13 @@ pseudo classes are powerful. can eliminate need for javascript
 input::placeholder {
   color: red;
   }
+
+
+
+
+## July 13th, 2024 ##
+
+Line height Headers => 1.1- 1.3 times the font size. 
+            Body => 1.2- 1.6 times the font size.
+
+Letter spacing headers =>  -1% to -3%
