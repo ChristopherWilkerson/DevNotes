@@ -2894,3 +2894,5 @@ In this lesson, we learned how to make GET and POST requests using the Fetch API
 
 Congratulations on learning all about asynchronous requests using fetch(), async, and await! These concepts are fundamental to helping you develop more robust web apps!
 
+
+
