@@ -2875,4 +2875,4 @@ To make asynchronous event handling easier, promises were introduced in ES6 Java
 In this lesson, we will explain how to use fetch() and promises to handle requests. Then, we will simplify requests using async and await.
 
 
-
+## July 15th, 2024 ##
