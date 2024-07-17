@@ -186,4 +186,46 @@ If you notice that a JSX expression has multiple outer elements, the solution is
 ## July 16th, 2024 ##
 
 
+Advanced JSX
+Self-Closing Tags
+2 min
+
+Another common JSX error involves self-closing tags.
+
+What’s a self-closing tag?
+
+Most HTML elements use two tags: an opening tag (<div>), and a closing tag (</div>). However, some HTML elements such as <img> and <input> use only one tag. The tag that belongs to a single-tag element isn’t an opening tag or a closing tag; it’s a self-closing tag.
+
+When you write a self-closing tag in HTML, it is optional to include a forward slash immediately before the final angle bracket:
+
+// Fine in HTML with a slash:
+<br />
+
+// Also fine, without the slash:
+<br>
+
+But, in JSX, you have to include the slash. If you write a self-closing tag in JSX and forget the slash, you will raise an error:
+
+// Fine in JSX:
+<br />
+
+// NOT FINE AT ALL in JSX:
+<br>
+
+
+Curly Braces in JSX
+1 min
+
+The code in the last exercise didn’t behave as one might expect. Instead of adding 2 and 3, it printed out “2 + 3” as a string of text. Why?
+
+This happened because 2 + 3 is located in between <h1> and </h1> tags.
+
+Any code in between the tags of a JSX element will be read as JSX, not as regular JavaScript! JSX doesn’t add numbers—it reads them as text, just like HTML.
+
+You need a way to write code that says, “Even though I am located in between JSX tags, treat me like ordinary JavaScript and not like JSX.”
+
+You can do this by wrapping your code in curly braces.
+
+
+
 
