@@ -289,3 +289,123 @@ This is a common way to express conditionals in JSX.
 
 
 
+Advanced JSX
+JSX Conditionals: &&
+6 min
+
+We’re going to cover one final way of writing conditionals in React: the && operator.
+
+Like the ternary operator, && is not React-specific, but it shows up in React very often.
+
+In the last two exercises, you wrote statements that would sometimes render a kitty and other times render a doggy. && would not have been the best choice for that code.
+
+&& works best for conditionals that will sometimes do an action but other times do nothing at all.
+
+Here’s an example:
+
+const tasty = (
+  <ul>
+    <li>Applesauce</li>
+    { !baby && <li>Pizza</li> }
+    { age > 15 && <li>Brussels Sprouts</li> }
+    { age > 20 && <li>Oysters</li> }
+    { age > 25 && <li>Grappa</li> }
+  </ul>
+);
+
+If the expression on the left of the && evaluates as true, then the JSX on the right of the && will be rendered. If the first expression is false, however, then the JSX to the right of the && will be ignored and not rendered.
+Instructions
+
+    Checkpoint 1 Passed
+
+    1.
+
+    You’ve been building a React website all about your favorite foods!
+
+    You’re excited to share your website with your friends, and yet at the same time, you fear the cruel, icy harshness of their judgment.
+
+    On line 15, use the && operator to make it so that this expression:
+
+    <li>Nacho Cheez Straight Out The Jar</li>
+
+    will only appear if !judgmental. Feel free to use the example code as a guide.
+
+    When you click Run, every time you refresh the browser, there will be a 50% chance that judgmental will be true. Refresh until you see both versions of your list.
+
+
+
+.map in JSX
+8 min
+
+The .map() array method comes up often in React. It’s good to get in the habit of using it alongside JSX.
+
+If you want to create a list of JSX elements, then using .map() is often the most efficient way. It can look odd at first:
+
+const strings = ['Home', 'Shop', 'About Me'];
+
+const listItems = strings.map(string => <li>{string}</li>);
+
+<ul>{listItems}</ul>
+
+In the above example, we start out with an array of strings. We call .map() on this array of strings, and the .map() call returns a new array of <li>s.
+
+On the last line of the example, note that {listItems} will evaluate to an array, because it’s the returned value of .map()! JSX <li>s don’t have to be in an array like this, but they can be.
+
+// This is fine in JSX, not in an explicit array:
+<ul>
+  <li>item 1</li>
+  <li>item 2</li>
+  <li>item 3</li>
+</ul>
+
+// This is also fine!
+const liArray = [
+  <li>item 1</li>, 
+  <li>item 2</li>, 
+  <li>item 3</li>
+];
+
+<ul>{liArray}</ul>
+
+
+Advanced JSX
+Keys
+6 min
+
+When you make a list in JSX, sometimes your list will need to include something called keys:
+
+<ul>
+  <li key="li-01">Example1</li>
+  <li key="li-02">Example2</li>
+  <li key="li-03">Example3</li>
+</ul>
+
+A key is a JSX attribute. The attribute’s name is key. The attribute’s value should be something unique, similar to an id attribute.
+
+keys don’t do anything visible! React uses them internally to keep track of lists. If you don’t use keys when you’re supposed to, React might accidentally scramble your list items into the wrong order.
+
+Not all lists need to have keys. A list needs keys if either of the following is true:
+
+    The list items have memory from one render to the next. For instance, when a to-do list renders, each item must “remember” whether it was checked off. The items shouldn’t get amnesia when they render.
+    A list’s order might be shuffled. For instance, a list of search results might be shuffled from one render to the next.
+
+If neither of these conditions is true, then you don’t have to worry about keys. If you aren’t sure, then it never hurts to use them!
+
+
+Your First React Component
+Name a Functional Component
+2 min
+
+Good! Creating a JavaScript function is the way to declare a new functional component.
+
+When you declare a new functional component, you need to give that component a name. On our finished component, our component’s name was MyComponent:
+
+function MyComponent() {
+  return <h1>Hello world</h1>;
+}
+
+Function component names must start with capitalization and are conventionally created with PascalCase! Due to how JSX tags are compiled, capitalization indicates that it is a React component rather than an HTML tag.
+
+This is a React-specific nuance! If you are creating a component, be sure to name it starting with a capital letter so it interprets it as a React component. If it begins with a lowercase letter, React will begin looking for a built-in component such as div and input instead and fail.
+
+
