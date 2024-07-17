@@ -228,4 +228,64 @@ You can do this by wrapping your code in curly braces.
 
 
 
+Advanced JSX
+JSX Conditionals: If Statements That Don't Work
+1 min
+
+Great work! You’ve learned how to use curly braces to inject JavaScript into a JSX expression!
+
+Here’s a rule that you need to know: you can not inject an if statement into a JSX expression.
+
+This code will break:
+
+(
+  <h1>
+    {
+      if (purchase.complete) {
+        'Thank you for placing an order!'
+      }
+    }
+  </h1>
+)
+
+What if you want a JSX expression to render but only under certain circumstances? You can’t inject an if statement. What can you do?
+
+You have lots of options. In the next few lessons, we’ll explore some simple ways to write conditionals (expressions that are only executed under certain conditions) in JSX.
+
+
+Advanced JSX
+JSX Conditionals: If Statements That Do Work
+8 min
+
+How can you write a conditional if you can’t inject an if statement into JSX?
+
+One option is to write an if statement and not inject it into JSX.
+
+Look at if.js. Follow the if statement, all the way from line 8 down to line 20.
+JSX Conditionals: The Ternary Operator
+6 min
+
+There’s a more compact way to write conditionals in JSX: the ternary operator.
+
+The ternary operator works the same way in React as it does in regular JavaScript. However, it shows up in React surprisingly often.
+
+Recall how it works: you write x ? y : z, where x, y, and z are all JavaScript expressions. When your code is executed, x is evaluated as either “truthy” or “falsy”. If x is truthy, then the entire ternary operator returns y. If x is falsy, then the entire ternary operator returns z.
+
+Here’s how you might use the ternary operator in a JSX expression:
+
+const headline = (
+  <h1>
+    { age >= drinkingAge ? 'Buy Drink' : 'Do Teen Stuff' }
+  </h1>
+);
+
+In the above example, if age is greater than or equal to drinkingAge, then headline will equal <h1>Buy Drink</h1>. Otherwise, headline will equal <h1>Do Teen Stuff</h1>.
+
+
+
+if.js works because the words if and else are not injected in between JSX tags. The if statement is on the outside, and no JavaScript injection is necessary.
+
+This is a common way to express conditionals in JSX.
+
+
 
