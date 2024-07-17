@@ -409,3 +409,57 @@ Function component names must start with capitalization and are conventionally c
 This is a React-specific nuance! If you are creating a component, be sure to name it starting with a capital letter so it interprets it as a React component. If it begins with a lowercase letter, React will begin looking for a built-in component such as div and input instead and fail.
 
 
+
+
+Your First React Component
+The Return Keyword in Functional Components
+4 min
+
+When we define a functional component, we essentially define a factory that can build the appropriate combination of elements every time we reference its name. It builds it by consulting a set of instructions that you must provide.
+
+If you’re thinking, “That sounds just like what a regular Javascript function is for”, then you’re right! Functional components can be thought of in a very similar vein to regular Javascript functions, except that their job is to assemble a portion of the interface based on instructions given!
+
+Let’s talk a bit more about these instructions.
+
+For starters, these instructions should take the form of a function declaration body. That means that they will be delimited by curly braces, like this:
+
+function Button() {
+  // Instructions go here, between the curly braces.
+}
+
+Our instructions can include a combination of markup, CSS, and JavaScript to produce the desired result. The one thing we must always include is a return statement.
+
+The function is expected to produce JSX code that can be used to render something onto the browser screen. Thus, when we define functional components, we must return a JSX element.
+
+function BackButton() {
+ return <button>Back To Home</button>;
+}
+
+Of course, this doesn’t quite make <button>Back To Home</button> render onto the browser screen yet. We’ve only defined our component.
+
+Let’s keep going so we can see how to render it and why the return statement was necessary!
+
+
+My Home
+Your First React Component: Review
+Narrative and Instructions
+Learn
+Your First React Component
+Review
+6 min
+
+In this lesson, you’ve learned about a foundational React concept: components.
+
+Before you go, here’s a recap:
+
+    React applications are made up of components.
+    Components are responsible for rendering pieces of the user interface.
+    To create components and render them, react and reactDOM must be imported.
+    React components can be defined with Javascript functions to make function components.
+    Function component names must start with a capitalized letter, and Pascal case is the adopted naming convention.
+    Function components must return some React elements in JSX syntax.
+    React components can be exported and imported from file to file.
+    A React component can be used by calling the component name in an HTML-like self-closing tag syntax.
+    Rendering a React component requires using .createRoot() to specify a root container and calling the .render() method on it.
+
+Phew! That was a lot, but components are at the core of React and they’re one of the reasons why React is such a powerful tool!
