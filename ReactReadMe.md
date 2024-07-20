@@ -463,3 +463,60 @@ Before you go, here’s a recap:
     Rendering a React component requires using .createRoot() to specify a root container and calling the .render() method on it.
 
 Phew! That was a lot, but components are at the core of React and they’re one of the reasons why React is such a powerful tool!
+
+
+## July 19th, 2024 ##
+
+Components and Advanced JSX
+Putting Logic in a Function Component
+11 min
+
+A function component must have a return statement. However, that isn’t all that it can have.
+
+You can also put simple calculations that need to happen before returning your JSX element within the function component.
+
+Here’s an example of some calculations that can be done inside a function component:
+
+function RandomNumber() {
+  //First, some logic that must happen before returning
+  const n = Math.floor(Math.random() * 10 + 1);
+  //Next, a return statement using that logic: 
+  return <h1>{n}</h1>
+}
+
+Watch out for this common mistake:
+
+function RandomNumber() {
+  return (
+    const n = Math.floor(Math.random() * 10 + 1);
+    <h1>{n}</h1>
+  )
+}
+
+In the above example, the line with the const n declaration will cause a syntax error, as it should come before the return.
+
+
+Event Listener and Event Handlers in a Component
+6 min
+
+Your function components can include event handlers. With event handlers, we can run some code in response to interactions with the interface, such as clicking.
+
+function MyComponent(){
+  function handleHover() {
+    alert('Stop it.  Stop hovering.');
+  }
+  return <div onHover={handleHover}></div>;
+}
+
+In the above example, the event handler is handleHover(). It is passed as a prop to the JSX element <div>. We’ll discuss more on props in a later lesson, but for now, understand that props are information passed to a JSX tag.
+
+The logic for what should happen when the <div> is hovered on is contained inside the handleHover() function. The function is then passed to the <div> element.
+
+Event handler functions are defined inside the function component and, by convention, start with the word “handle” followed by the type of event it is handling.
+
+There’s a small quirk you should watch out for. Take a look at this line again:
+
+return <div onHover={handleHover}></div>
+
+The handleHover() function is passed without the parentheses we would typically see when calling a function. This is because passing it as handleHover indicates it should only be called once the event has happened. Passing it as handleHover() would trigger the function immediately, so be careful!
+
