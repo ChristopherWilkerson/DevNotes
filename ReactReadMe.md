@@ -551,3 +551,8 @@ function ItemBox() {
 }
 
 In the above example, ItemBox returns an instance of PurchaseButton. This is an example of how a component can reference other components!
+
+
+
+Components must be capatilized! Otherwise breaks react. 
+wont let you access anything (remember pokemon app lol)
