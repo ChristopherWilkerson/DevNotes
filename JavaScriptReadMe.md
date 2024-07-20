@@ -2896,3 +2896,13 @@ Congratulations on learning all about asynchronous requests using fetch(), async
 
 ## July 19th, 2024 ##
 
+
+getting input from search value 
+
+                  const searchInput = document.querySelector('.search__bar');
+                  const searchValue = searchInput.value;
+                  const buttonDiv = document.querySelector('button');
+                  
+               #searchInput.addEventListener('keyup', (e) => {
+                      buttonDiv.innerHTML = e.target.value;
+                  })#
