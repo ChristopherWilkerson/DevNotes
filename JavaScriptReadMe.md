@@ -2906,3 +2906,10 @@ getting input from search value
                #searchInput.addEventListener('keyup', (e) => {
                       buttonDiv.innerHTML = e.target.value;
                   })#
+
+
+## July 20th, 2024 ##
+
+prototypal inheiritance
+
+j.s will keep looking through __proto__s until it finds an instance of whatever you're calling.  
