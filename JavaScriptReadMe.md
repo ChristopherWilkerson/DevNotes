@@ -2913,3 +2913,21 @@ getting input from search value
 prototypal inheiritance
 
 j.s will keep looking through __proto__s until it finds an instance of whatever you're calling.  
+
+
+cool timing function script
+      /*function createSpan(){
+    let index = 0;
+    let timer = setInterval(function(){
+        document.querySelector('span').innerHTML= jobs[index];
+        index++;
+        if (index === jobs.length) {
+            document.querySelector('span').style.color = 'rgb(240, 201, 180)';
+            document.querySelector('span').style.fontSize = '4rem';
+            clearInterval(timer);
+        }
+            }, 1000);
+            
+            }
+            
+            createSpan();*/
