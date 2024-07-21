@@ -2931,3 +2931,9 @@ cool timing function script
             }
             
             createSpan();*/
+
+
+#date function#
+
+const date = new Date()
+yearEl = date.getYear()
