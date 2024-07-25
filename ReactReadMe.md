@@ -1063,3 +1063,7 @@ const [currentState, stateSetter] = useState( initialState );
 
 
 ## July 23rd, 2024 ##
+
+## July 24th, 2024 ##
+
+useState & useEffect
