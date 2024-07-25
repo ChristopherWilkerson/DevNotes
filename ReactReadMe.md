@@ -1067,3 +1067,27 @@ const [currentState, stateSetter] = useState( initialState );
 ## July 24th, 2024 ##
 
 useState & useEffect
+
+The Effect Hook
+Why Use useEffect?
+2 min
+
+Before Hooks, function components were only used to accept data in the form of props and return some JSX to be rendered. However, as we learned in the last lesson, the State Hook allows us to manage dynamic data, in the form of component state, within our function components.
+
+In this lesson, we’ll use the Effect Hook to run some JavaScript code after each render to:
+
+    fetch data from a back-end service.
+    subscribe to a stream of data.
+    manage timers and intervals.
+    read from and make changes to the DOM.
+
+Components will re-render multiple times throughout their lifetime. These key moments present the perfect opportunity to execute these “side effects”.
+
+There are three key moments when the Effect Hook can be utilized:
+
+    When the component is first added, or mounted, to the DOM and renders.
+    When the state or props change, causing the component to re-render.
+    When the component is removed, or unmounted, from the DOM.
+
+Later on in this lesson, we’ll learn how to further fine-tune exactly when the Effect Hook executes.
+
