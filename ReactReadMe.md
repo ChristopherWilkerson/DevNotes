@@ -1389,3 +1389,10 @@ Hooks give us the flexibility to organize our code in different ways, grouping r
 
 ## July 26th, 2024 ##
 
+<>
+
+
+</>
+
+fragment that you can wrap your jsx in like a <div></div> without creating a div element in the dom
+
