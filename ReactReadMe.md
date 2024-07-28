@@ -1404,3 +1404,20 @@ don't forget that list items need keys in React.
 
 .slice()
 is good for arrays
+
+kDramas.slice(0, 3) will return the first 3 elements from the array kDramas.
+
+can also be really powerful when added to
+
+i.e
+
+can use map for it to
+
+  so kDramas.slice(0,3).map(drama => {
+   function()
+   }) 
+
+   will return whatever you've mapped in the function but only applies to first 3 items in array.
+
+   so for React, you can create a page that displays only the first 3 objects on the screen instead of entire array. 
+  }
