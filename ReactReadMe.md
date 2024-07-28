@@ -1396,4 +1396,4 @@ Hooks give us the flexibility to organize our code in different ways, grouping r
 
 fragment that you can wrap your jsx in like a <div></div> without creating a div element in the dom
 
-
+don't forget that list items need keys in React.
