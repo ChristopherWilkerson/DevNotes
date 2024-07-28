@@ -1401,3 +1401,6 @@ don't forget that list items need keys in React.
 
 ## July 27th, 2024 ##
 
+
+.slice()
+is good for arrays
