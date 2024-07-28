@@ -1781,6 +1781,28 @@ for (let todo of todos) {
             single out certain keys or values. 
 
 
+
+            ## July 28th ## 
+
+array.reduce 
+
+      can add up all items in the array...i.e
+
+      items = [{
+      name: 'macbook pro',
+      price: 1799
+      },
+      {name: 'macbook air',
+      price: 1299
+      
+      }]
+
+      data.reduce(currentTotal, item => {
+      return item.price + currentTotal
+      
+      , 0})
+
+
 ## July 2nd, 2024
 
 querySelector &
