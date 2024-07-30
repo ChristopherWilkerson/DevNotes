@@ -1423,3 +1423,13 @@ can use map for it to
   }
 
 ## July 29th, 2024 ##
+
+React Programming Patterns
+Create Container Component
+7 min
+
+Separating container components from presentational components is a popular React programming pattern.
+
+The functional part of a component (maintaining a state, making calculations based on props, etc.) can be separated into a container component, also known as a stateful component.
+
+This container component will be in charge of maintaining the state (creating and updating) and passing it on (we’ll see this later) to any component it renders through props.
