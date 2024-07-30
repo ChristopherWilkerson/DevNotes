@@ -1175,5 +1175,7 @@ Saving our values returned from a function like we did with new_zealand_exchange
 
 ## June 19th, 2024 took break to focus on javascript
 
+## July 30th, 2024 ##
 
+use outline: instead of border to debug css. Outline won't add size to element. 
 
