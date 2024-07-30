@@ -1501,3 +1501,69 @@ Here are the steps we took:
     Passed state and functions used to change state as props to the rendered presentational components.
 
 In this programming pattern, the container component does the work of figuring out what to display using state. The presentational component does the work of actually displaying the state through props. If a component does a significant amount of work in both areas, then that’s a sign that you should use this pattern!
+
+
+React Styles
+Style Syntax
+4 min
+
+There are a few things to keep in mind when styling components with JSX.
+
+Just like how we reference CSS properties in the style object of the DOM in JavaScript, we write CSS property names using camelCase in React:
+
+const styles = {
+  marginTop: '20px',
+  backgroundColor: 'green'
+};
+
+This syntax comes from a small rule. A hyphen is a reserved operator in JavaScript. If we use background-color, the hyphen is then interpreted as a minus sign. Thus, we want to be consistent with the property names in the DOM style JavaScript object and use camel case.
+
+In regular JavaScript, style values are almost always strings. Even if a style value is numeric, you usually have to write it as a string so that you can specify a unit. For example, you’d write '450px' or '20%'.
+
+If you write a style value as a number, then the unit 'px' is assumed. For example, if you want a font size of 30px, you can write:
+
+{ fontSize: 30 }
+
+If you want to use units other than 'px', you can use a string:
+
+{ fontSize: "2em" }
+
+Specifying the 'px' unit in a string will still work, although it’s redundant.
+
+A few specific styles will not automatically fill in the px for you. These are styles where you aren’t likely to use 'px' anyway, so you don’t really have to worry about them.
+
+
+React Styles
+Multiple Stylesheets
+10 min
+
+While inline styles and style object variables are valid methods of styling in React, it can become organizationally difficult to keep track of the styles being applied as your application grows.
+
+One way to make styles modular, organized, and reusable is to create separate stylesheets for each component.
+
+We can import a stylesheet by using the import keyword:
+
+import './App.css'
+
+However, if we have multiple stylesheets with the same class names, the names can collide and create style conflicts.
+
+One way to prevent this is to use CSS modules. By importing it as a module, the styles will only be available for the component that imported the style. This is done automatically by creating unique class names for each module. This frees us from having to keep track of the class names we’ve used across stylesheets.
+
+To use CSS modules, we begin by naming our stylesheet in this format, where fileName should be replaced with the name of the component you’re styling:
+
+fileName.module.css
+
+This indicates that the file should be processed as a CSS module.
+
+Then, it must be imported into the file containing our component.
+
+import styles from './fileName.module.css'
+
+From this import, we can see that the styles object now holds the class selectors of fileName.module.css. To access the selectors, we use the dot notation like so:
+
+<div className={styles.divStyle}></div>
+
+Note that we apply styles using the className attribute rather than class. class is a reserved JavaScript keyword, so React uses className to avoid conflicts.
+
+Although React does not have an opinion on how styles should be defined, this is the preferred method for styling in React, as it maintains the compositional philosophy of React.
+
