@@ -1421,3 +1421,5 @@ can use map for it to
 
    so for React, you can create a page that displays only the first 3 objects on the screen instead of entire array. 
   }
+
+## July 29th, 2024 ##
