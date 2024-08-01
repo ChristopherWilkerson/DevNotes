@@ -2967,3 +2967,59 @@ yearEl = date.getYear()
 
 .classList.toggle  = will add or remove a class from our element depending on if it exists there already
 
+
+## July 31st, 2024 ##
+
+pomodoro app javascript code:
+
+
+const timerNumbers = document.querySelector('.numbers');
+const startButton = document.querySelector('.start');
+const stopButton = document.querySelector('.stop');
+const resetButton = document.querySelector('.reset');
+
+let interval;
+let timeLeft = 1500;
+
+function updateTimer() {
+    timerNumbers.textContent = `${Math.floor((timeLeft / 60)).toFixed(0).toString().padStart(2, '0')}:${(timeLeft % 60).toString().padStart(2, "0")}`;
+}
+
+
+// start time
+
+function startTime() {
+    interval = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft === 0) {
+        clearInterval(interval)
+        alert('Time is Up!');
+        timeLeft = 1500;
+    }
+    }, 1000)
+   
+}
+
+startButton.addEventListener('click', () => {
+    startTime()
+    clearInterval(interval);
+})
+
+// stop time 
+
+function stopTime() {
+    clearInterval(interval)
+}
+
+stopButton.addEventListener('click', stopTime)
+
+// reset time 
+
+function resetTime() {
+    timeLeft = 1500;
+    clearInterval(interval);
+    updateTimer()
+}
+
+resetButton.addEventListener('click', resetTime)
