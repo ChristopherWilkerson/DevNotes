@@ -3101,3 +3101,12 @@ Let’s rephrase the data flow using the new term:
     The view is updated to display the new state.
 
 While we won’t be writing any code for the store during this lesson, it is essential that you understand the state, actions, reducers, and their role in the one-way data flow.
+
+
+
+## Aug 15th ##
+
+Higher order functions in functional programming is a function that takes a function as a parameter or 
+returns a function 
+
+currying is dope.
