@@ -3026,3 +3026,78 @@ function resetTime() {
 }
 
 resetButton.addEventListener('click', resetTime)
+
+
+
+## Redux ##
+
+Core Concepts in Redux
+Reducers
+17 min
+
+So far, we’ve defined the state of our application and the actions representing requests to change that state, but we haven’t seen how these changes are carried out in JavaScript. The answer is a reducer.
+
+A reducer, or reducer function, is a plain JavaScript function that defines how the current state and an action are used in combination to create the new state.
+
+Here’s an example of a reducer function for a todo app:
+
+const initialState = [ 'Print trail map', 'Pack snacks', 'Summit the mountain' ];
+
+const todoReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'todos/addTodo': {
+      return [ ...state, action.payload];
+    }
+    case 'todos/removeAll': {
+      return [];
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+There are a few things about this reducer that are true for all reducers:
+
+    It’s a plain JavaScript function
+    It defines the application’s next state given a current state and a specific action
+    It returns a default initial state if no action is provided
+    It returns the current state if the action is not recognized
+
+There are two intermediate JavaScript syntaxes used here:
+
+    We use the equals sign = to supply a default value for the state parameter.
+    We use the spread operator (...) to copy the current state and any changed values into a new object, not the existing state argument. We’ll explain why in the next exercise.
+
+Core Concepts in Redux
+Rules of Reducers
+11 min
+
+In the previous exercise, we wrote reducers that returned a new copy of the state rather than editing it directly. We did this to adhere to the rules of reducers provided by the Redux documentation:
+
+    They should only calculate the new state value based on the state and action arguments.
+    They are not allowed to modify the existing state. Instead, they must copy the existing state and make changes to the copied values.
+    They must not do any asynchronous logic or have other “side effects”.
+
+By asynchronous logic or “side effects”, we mean anything that the function does aside from returning a value, e.g., logging to the console, saving a file, setting a timer, making an HTTP request, and generating random numbers.
+
+By adhering to these rules, Redux promotes a clean separation of concerns, improves the maintainability of the codebase, and allows for efficient debugging and testing.
+
+
+Core Concepts in Redux
+Store
+3 min
+
+So far we have covered state, actions, reducers, and how they participate in the one-way data flow. Where does all of this take place?
+
+Redux uses a special object called the store. The store serves as a container for the state, and it is the centerpiece of your application and the single source of truth. The store is in charge of facilitating the dispatching of actions, and triggering the reducer when actions are dispatched. In most Redux applications, there is typically only one store.
+
+Let’s rephrase the data flow using the new term:
+
+    The store initializes the state with a default value.
+    The view displays that state to the user.
+    When a user interacts with the view, such as clicking a button, an action is dispatched to the store.
+    The store’s reducer combines the dispatched action and the current state to determine the next state.
+    The view is updated to display the new state.
+
+While we won’t be writing any code for the store during this lesson, it is essential that you understand the state, actions, reducers, and their role in the one-way data flow.
