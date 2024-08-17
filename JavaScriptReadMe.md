@@ -3110,3 +3110,6 @@ Higher order functions in functional programming is a function that takes a func
 returns a function 
 
 currying is dope.
+
+
+can make className dynamic :) super cool. i.e changing classname based on whether the number is negative or positive.
