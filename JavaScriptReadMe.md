@@ -4,7 +4,7 @@ Java script :)
       Introduction to JavaScript
       Console
       4 mins
-      3 mins
+      3 min
        
        
       
