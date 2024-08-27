@@ -1,2 +1,22 @@
 ## Python Notes
 #### June 10th, 2024
+
+
+## August 27th, 2024 ##
+
+zip function for lists is awesome.
+
+brand = ['prada', 'kith', 'aimeDeLeon', 'stussy']
+price = [1200, 400, 300, 500]
+
+brand_price = zip(brand, price)
+brand_price_list = list(brand_price)
+print(brand_price_list)
+
+= [('prada', 1200), ('kith', 400), ('aimeDeLeon', 300), ('stussy', 500)]
+
+
+returns a set of tuples in a list.
+
+Tuple is like a list but immutable. looks like (1, 2, 3, 4) 
+Can have a Tuple with one item but has to have comma after item i.e (1,)
