@@ -5,7 +5,7 @@ Java script :)
       Console
       4 mins
       3 mins
-      2
+      2 m
       
        
        
