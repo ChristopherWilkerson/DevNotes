@@ -98,3 +98,42 @@ then use pip freeze > requirements.txt
 to use this file 
 
 pip install -r requirements.txt
+
+
+Introduction to Strings
+Cut Me a Slice of String
+6 min
+
+Not only can we select a single character from a string, but we can also select entire chunks of characters from a string. We can do this with the following syntax:
+
+string[first_index:last_index]
+
+This is called slicing a string. When we slice a string we are creating a substring - a brand new string that starts at (and includes) the first_index and ends at (but excludes) the last_index.
+
+Let’s look at some examples of this. Recall our favorite fruit:
+
+favorite_fruit = "blueberry"
+
+The indices of this string are shown in the diagram below.
+
+Blueberry String
+
+Let’s say we wanted a new string that contains the letters be. We could slice favorite_fruit as follows:
+
+print(favorite_fruit[4:6])
+# Output: be
+
+Notice how the character at the first index, b, is included, but the character at the last index, r, is excluded. If you look for the indices 4 and 6 in the diagram, you can see how the r is outside that range.
+
+We can also have open-ended selections. If we remove the first index, the slice starts at the beginning of the string and if we remove the second index the slice continues to the end of the string.
+
+print(favorite_fruit[:4])
+# Output: blue
+
+print (favorite_fruit[4:])
+# Output: berry
+
+Again, notice how the b from berry is excluded from the first example and included in the second example.
+
+
+Strings are immutable in Python.
