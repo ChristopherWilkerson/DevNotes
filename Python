@@ -138,3 +138,156 @@ Again, notice how the b from berry is excluded from the first example and includ
 
 
 Strings are immutable in Python.
+
+Introduction to Strings
+Strings and Conditionals (Part Two)
+16 min
+
+There’s an even easier way than iterating through the entire string to determine if a character is in a string. We can do this type of check more efficiently using in. in checks if one string is part of another string.
+
+Here is what the syntax of in looks like:
+
+letter in word
+
+Here, letter in word is a boolean expression that is True if the string letter is in the string word. Here are some examples:
+
+print("e" in "blueberry")
+# => True
+print("a" in "blueberry")
+# => False
+
+In fact, this method is more powerful than the function you wrote in the last exercise because it not only works with letters, but with entire strings as well.
+
+print("blue" in "blueberry")
+# => True
+print("blue" in "strawberry")
+# => False
+
+It can be helpful to include more than one boolean expression in the same line of code. To do this, use and or and not in between the boolean expressions.
+
+print("e" in "blueberry" and "e" in "carrot")
+# => False
+print("e" in "blueberry" and not "e" in "carrot")
+# => True
+
+The first example above is False because ONE of the expressions was False; there is no “e” in “carrot”. The second example is True because there is an “e” in “blueberry” and not an “e” in “carrot”; both expressions are True.
+
+
+String Methods
+Splitting Strings
+3 min
+
+.upper(), .lower(), and .title() all are performed on an existing string and produce a string in return. Let’s take a look at a string method that returns a different object entirely!
+
+.split() is performed on a string, takes one argument, and returns a list of substrings found between the given argument (which in the case of .split() is known as the delimiter). The following syntax should be used:
+
+string_name.split(delimiter)
+
+If you do not provide an argument for .split() it will default to splitting at spaces.
+
+For example, consider the following strings:
+
+man_its_a_hot_one = "Like seven inches from the midday sun"
+print(man_its_a_hot_one.split())
+# => ['Like', 'seven', 'inches', 'from', 'the', 'midday', 'sun']
+
+.split() returned a list with each word in the string. Important to note: if we run .split() on a string with no spaces, we will get a single element array containing the same string.
+
+String Methods
+Joining Strings II
+5 min
+
+In the last exercise, we joined together a list of words using a space as the delimiter to create a sentence. In fact, you can use any string as a delimiter to join together a list of strings. For example, if we have the list
+
+santana_songs = ['Oye Como Va', 'Smooth', 'Black Magic Woman', 'Samba Pa Ti', 'Maria Maria']
+
+We could join this list together with ANY string. One often used string is a comma , because then we can create a string of comma-separated values, or CSV.
+
+santana_songs_csv = ','.join(santana_songs)
+print(santana_songs_csv)
+# => 'Oye Como Va,Smooth,Black Magic Woman,Samba Pa Ti,Maria Maria'
+
+You’ll often find data stored in CSVs because it is an efficient, simple file type used by popular programs like Excel or Google Spreadsheets.
+
+You can also join using escape sequences as the delimiter. Consider the following example:
+
+smooth_fifth_verse_lines = ['Well I\'m from the barrio', 'You hear my rhythm on your radio', 'You feel the turning of the world so soft and slow', 'Turning you \'round and \'round']
+
+smooth_fifth_verse = '\n'.join(smooth_fifth_verse_lines)
+
+print(smooth_fifth_verse)
+
+This code is taking the list of strings and joining them using a newline \n as the delimiter. Then it prints the result and produces the output:
+
+Well I'm from the barrio
+You hear my rhythm on your radio
+You feel the turning of the world so soft and slow
+Turning you 'round and 'round
+
+
+The next string method we will cover is .replace(). Replace takes two arguments and replaces all instances of the first argument in a string with the second argument. The syntax is as follows
+
+string_name.replace(substring_being_replaced, new_substring)
+
+Great! Let’s put it in context and look at an example.
+
+with_spaces = "You got the kind of loving that can be so smooth"
+with_underscores = with_spaces.replace(' ', '_')
+print(with_underscores)
+# 'You_got_the_kind_of_loving_that_can_be_so_smooth'
+
+Here we used .replace() to change every instance of a space in the string above to be an underscore instead.
+
+Note that in this example, we used a single character, but these substrings can be multiple characters long!
+
+
+String Methods
+.format()
+9 min
+
+Python also provides a handy string method for including variables in strings. This method is .format(). .format() takes variables as an argument and includes them in the string that it is run on. You include {} marks as placeholders for where those variables will be imported.
+
+Consider the following function:
+
+def favorite_song_statement(song, artist):
+  return "My favorite song is {} by {}.".format(song, artist)
+
+The function favorite_song_statement takes two arguments, song and artist, then returns a string that includes both of the arguments and prints a sentence. Note: .format() can take as many arguments as there are {} in the string it is run on, which in this case is two.
+
+Here’s an example of the function being run:
+
+print(favorite_song_statement("Smooth", "Santana"))
+# => "My favorite song is Smooth by Santana."
+
+Now you may be asking yourself, I could have written this function using string concatenation instead of .format(), why is this method better? The answer is legibility and reusability. It is much easier to picture the end result .format() than it is to picture the end result of string concatenation and legibility is everything. You can also reuse the same base string with different variables, allowing you to cut down on unnecessary, hard to interpret code.
+
+
+
+## Algorithms ## 
+
+Reverse string input 
+
+
+function reverse(string) {
+    let container = []
+    for (i = 0; i <= string.length; i++) {
+        container.push(string[string.length - i])
+        // console.log(string[string.length - i])
+    }
+    console.log(container.join(""));
+}
+
+
+reverse('this is your captain speaking')
+
+
+
+Rand Array Generator 
+
+function randArray(num) {
+    let randCont = []
+    for (i = 0; i < num; i++) {
+        randCont.push(Math.floor(Math.random() * i));
+    }
+    return randCont
+}
