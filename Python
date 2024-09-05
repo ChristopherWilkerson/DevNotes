@@ -320,3 +320,46 @@ name in dictionary cannot be duplicate,
 but value can be
 
 
+## MAX CHARACTER ##
+
+def max_char(string):
+    i = 0
+    count = []
+    while i < len(string) - 1:
+        numbers = string.count(string[i])
+        count.append(numbers)
+        high_char = max(count)
+        high_number = count.index(high_char)
+        high_letter = string[high_number]
+        i += 1
+    return high_letter
+
+
+print(max_char('Thiisss'))
+
+
+
+Delete a Key
+11 min
+
+Sometimes we want to get a key and remove it from the dictionary. Imagine we were running a raffle, and we have this dictionary mapping ticket numbers to prizes:
+
+raffle = {223842: "Teddy Bear", 872921: "Concert Tickets", 320291: "Gift Basket", 412123: "Necklace", 298787: "Pasta Maker"}
+
+When we get a ticket number, we want to return the prize and also remove that pair from the dictionary, since the prize has been given away. We can use .pop() to do this. Just like with .get(), we can provide a default value to return if the key does not exist in the dictionary:
+
+print(raffle.pop(320291, "No Prize"))
+# Prints "Gift Basket"
+print(raffle)
+# Prints {223842: "Teddy Bear", 872921: "Concert Tickets", 412123: "Necklace", 298787: "Pasta Maker"}
+print(raffle.pop(100000, "No Prize"))
+# Prints "No Prize"
+print(raffle)
+# Prints {223842: "Teddy Bear", 872921: "Concert Tickets", 412123: "Necklace", 298787: "Pasta Maker"}
+print(raffle.pop(872921, "No Prize"))
+# Prints "Concert Tickets"
+print(raffle)
+# Prints {223842: "Teddy Bear", 412123: "Necklace", 298787: "Pasta Maker"}
+
+.pop() works to delete items from a dictionary, when you know the key value.
+
