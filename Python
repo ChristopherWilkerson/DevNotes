@@ -455,3 +455,39 @@ print(argus)
 # prints "Argus Filch"
 
 We implemented the __repr__() method and had it return the .name attribute of the object. When we printed the object out it simply printed the .name of the object! Cool!
+
+
+Variable number of arguments: *args
+8 min
+
+To start exploring variable argument lengths in Python functions, let’s take a look at a familiar function we have been using for a long time:
+
+print('This', 'is', 'the', 'print', 'function')
+
+Notice how the print() function does not care how many arguments we pass to it. It has no expectation that we are going to pass in one argument or even a million! So the question is, how does print() accomplish this?
+
+Well, in Python, there is an additional operator called the unpacking operator (*). The unpacking operator allows us to give our functions a variable number of arguments by performing what’s known as positional argument packing.
+
+Let’s explore how it works by examining a basic function that utilizes the unpacking operator:
+
+def my_function(*args):
+  print(args)
+
+If we called this function with random arguments:
+
+my_function('Arg1', 245, False)
+
+Our output would show us what is inside of *args:
+
+('Arg1', 245, False)
+
+Notice two things:
+
+    In our print() call, we simply use the name of args with the unpacking operator omitted. The name of args is completely arbitrary, and this example works just the same:
+
+    def my_function(*randomname):
+      print(randomname)
+
+    Whatever name follows the unpacking operator (*) will store the arguments passed into the function in the form of a tuple. This allows our functions to accept any number of arguments just like the print() function we examined earlier. In this case, args has three values inside, but it can have many more (or fewer).
+
+Let’s practice using the unpacking operator for positional arguments in a function!
