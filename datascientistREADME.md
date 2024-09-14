@@ -732,3 +732,97 @@ Let’s return to our newspaper subscriptions. This table contains two columns t
 
 Suppose we wanted to know how many users were subscribed during each month of the year. For each month (1, 2, 3) we would need to know if a user was subscribed. Follow the steps below to see how we can use a CROSS JOIN to solve this problem.
 
+
+Multiple Tables
+Union
+3 min
+
+Sometimes we just want to stack one dataset on top of the other. Well, the UNION operator allows us to do that.
+
+Suppose we have two tables and they have the same columns.
+
+table1:
+pokemon 	type
+Bulbasaur 	Grass
+Charmander 	Fire
+Squirtle 	Water
+
+table2:
+pokemon 	type
+Snorlax 	Normal
+
+If we combine these two with UNION:
+
+SELECT *
+FROM table1
+UNION
+SELECT *
+FROM table2;
+
+The result would be:
+pokemon 	type
+Bulbasaur 	Grass
+Charmander 	Fire
+Squirtle 	Water
+Snorlax 	Normal
+
+SQL has strict rules for appending data:
+
+    Tables must have the same number of columns.
+    The columns must have the same data types in the same order as the first table.
+
+With
+12 min
+
+Often times, we want to combine two tables, but one of the tables is the result of another calculation.
+
+Let’s return to our magazine order example. Our marketing department might want to know a bit more about our customers. For instance, they might want to know how many magazines each customer subscribes to. We can easily calculate this using our orders table:
+
+SELECT customer_id,
+   COUNT(subscription_id) AS 'subscriptions'
+FROM orders
+GROUP BY customer_id;
+
+This query is good, but a customer_id isn’t terribly useful for our marketing department, they probably want to know the customer’s name.
+
+We want to be able to join the results of this query with our customers table, which will tell us the name of each customer. We can do this by using a WITH clause.
+
+WITH previous_results AS (
+   SELECT ...
+   ...
+   ...
+   ...
+)
+SELECT *
+FROM previous_results
+JOIN customers
+  ON _____ = _____;
+
+    The WITH statement allows us to perform a separate query (such as aggregating customer’s subscriptions)
+    previous_results is the alias that we will use to reference any columns from the query inside of the WITH clause
+    We can then go on to do whatever we want with this temporary table (such as join the temporary table with another table)
+
+Essentially, we are putting a whole first query inside the parentheses () and giving it a name. After that, we can use this name as if it’s a table and write a new query using the first query.
+
+
+Review
+<1 min
+
+In this lesson, we learned about relationships between tables in relational databases and how to query information from multiple tables using SQL.
+
+Let’s summarize what we’ve learned so far:
+
+    JOIN will combine rows from different tables if the join condition is true.
+
+    LEFT JOIN will return every row in the left table, and if the join condition is not met, NULL values are used to fill in the columns from the right table.
+
+    Primary key is a column that serves a unique identifier for the rows in the table.
+
+    Foreign key is a column that contains the primary key to another table.
+
+    CROSS JOIN lets us combine all rows of one table with all rows of another table.
+
+    UNION stacks one dataset on top of another.
+
+    WITH allows us to define one or more temporary tables that can be used in the final query.
+
