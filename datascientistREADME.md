@@ -858,3 +858,29 @@ With that sorted out, we can use the field to make a map that uses the Borocode 
 This is a Tableau worksheet. In the columns shelf is "Longitude(generated)" and the rows shelf has "Latitude(generated). The "Borocode" column is on the color shelf and the "Zipcode" column is on the detail shelf. There is a map with all the different regions and each section of "Borocode" is a different color. The top left region has blue dots, meaning they have a Borocode of 1. The top right region has orange dots, meaning they have a Borocode of 2. The middle region has red dots, meaning they have a Borocode of 3. The middle right region has blueish-green dots, meaning they have a Borocode of 4. The bottom left region has green dots, meaning they have a Borocode of 5.
 
 Let’s open our workbook with the Tree Census Data so we can explore another example together.
+
+
+Part I: Designing a Story
+
+Many successful data visualizations and dashboards start by working on paper first. This is where the storytelling process begins.
+
+Think about the following, and write or sketch out what comes to mind:
+
+    What is the objective, or core question(s), of the viz? In other words, What question do you want to answer?
+    Who is the intended audience?
+    What data will be used and what insights can be drawn from it?
+
+With these questions in mind, we can begin to carve out the viewer’s journey. If we’re making an argument, we may want to identify supporting data and think about the best sequence to present it in. For a narrative, we may want to give viewers the option to explore the data to come up with their own conclusion, or we might choose to lead the viewer to a specific conclusion.
+
+Generally, the best way to present a story in Tableau is using a dashboard, which is a combination of several visualizations that can be arranged in a single presentation, like an interactive poster. We may also opt to use a Tableau story, which is a series of visualizations or dashboards. Stories allow us to use buttons to navigate through the views, like turning pages of a book.
+
+Tableau offers some commonly used approaches to storytelling with data that can help us find focus in a visualization or dashboard.
+
+    Change Over Time: Uses temporal data to illustrate trends or shifts
+    Drill Down: Starts with the bigger picture, then gets into finer details
+    Zoom Out: Starts with a smaller detail then gets into broad and high-level picture
+    Contrast: Depicts differences between 2+ subjects
+    Intersections: Explores how 2 initially separate dimensions may converge
+    Factors: Takes a broader subject and divides it into factors (types/categories)
+    Outliers: Highlights and profiles outlier in the data
+
