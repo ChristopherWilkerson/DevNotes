@@ -826,3 +826,35 @@ Let’s summarize what we’ve learned so far:
 
     WITH allows us to define one or more temporary tables that can be used in the final query.
 
+
+Data Setup
+Dimensions and Measures, Discrete and Continuous
+9 min
+
+Okay, there’s a lot to take in here, but this exercise is one of the most integral to understanding Tableau’s data language. Take your time and refer back to the chart on the right as needed.
+
+During the Loading Data lesson, we saw how Tableau assigns different field types to data (numeric, string, geographic, etc.). Tableau also categorizes each of these fields by their role in our visuals. Tableau calls the two roles dimensions and measures.
+
+Dimension icons are blue and represent discrete fields: categories and descriptive variables.
+
+Measure icons are green and represent continuous fields: numbers that we can perform calculations on.
+
+Tableau is usually pretty accurate in assigning dimensions or measures to a data type, but it’s always good to double-check. Remember when we changed the Tree ID field from a number to a string? Tableau had assigned this field as a measure because it contained numbers. But we knew that the numbers actually represented unique IDs, and we changed the data type to a string so that Tableau will treat this variable as a dimension.
+
+Why does this matter? Let’s check out Borocode – a field with numbers 1-5 to represent the boroughs of New York City: Manhattan, the Bronx, Queens, Brooklyn, and Staten Island – and see what happens if we let Tableau treat Borocode as a measure instead of a dimension.
+
+When Borocode is read as a Number and Measure, Tableau aggregates the Borocode field in the SUM() formula. (Notice that the Borocode Pill is green and has been wrapped in the SUM() formula.)
+
+This is a snip from a Tableau worksheet. The columns shelf has "SUM(Borocode)" and is encircled in a green pill. The rows shelf has "Boroname" and it has a blue pill around it. The chart is a bar graph with "Boroname" on the y-axis and "Sum of Borocode" on the x-axis. There are five horizontal bars that have labels to the left of each one. They read from top to bottom, "Bronx", "Brooklyn", "Manhattan", "Queens", and "Staten Island". The values to the right of each bar are labeled from top to bottom as, "170,406", "531,879", "65,423", "1,002,204", and "526,590"
+
+Since the field was “numerical” and set as a measure, Tableau summed the values in that field and created a bar graph to represent the totals. This doesn’t tell us anything meaningful because the numbers represent categories! Manhattan has just a small bar in the graph because its Borocode is 1 rather than 4 or 5.
+
+When we change the data type so that Tableau reads Borocode as a String and Dimension, however, Borocode now functions as an ID or label for each borough. Tableau will no longer attempt to do any calculations on this field, and we can see here how it corresponds with the variable Boroname.
+
+This is a Tableau workbook. In the rows shelf, there is "Boroname" and "Borocode" and they are each encircled in a blue pill. There is a chart below with five rows and three columns of data. The first column name is "Boroname" and the data in this column from top to bottom reads, "Bronx", "Brooklyn", "Manhattan", "Queens", and "Staten Island". The second column name is "Borocode" and the data in this column reads from top to bottom, "2", "3", "1", "4", and "5". The third column has no name and the entire data says "Abc" in each row.
+
+With that sorted out, we can use the field to make a map that uses the Borocode variable to apply color to each borough, for example.
+
+This is a Tableau worksheet. In the columns shelf is "Longitude(generated)" and the rows shelf has "Latitude(generated). The "Borocode" column is on the color shelf and the "Zipcode" column is on the detail shelf. There is a map with all the different regions and each section of "Borocode" is a different color. The top left region has blue dots, meaning they have a Borocode of 1. The top right region has orange dots, meaning they have a Borocode of 2. The middle region has red dots, meaning they have a Borocode of 3. The middle right region has blueish-green dots, meaning they have a Borocode of 4. The bottom left region has green dots, meaning they have a Borocode of 5.
+
+Let’s open our workbook with the Tree Census Data so we can explore another example together.
