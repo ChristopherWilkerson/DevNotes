@@ -1015,3 +1015,21 @@ Jane Doe     | 456 Maple Ave |   28
 Joe Schmo    | 789 Broadway  |   51
 
 DataFrames are useful because they make it much easier to select, manipulate, and summarize data. Their tabular format (a table with rows and columns) also makes it easier to label, simpler to read, and easier to export data to and from a spreadsheet. Understanding the power of these new data structures is the key to unlocking many new avenues for data manipulation, exploration, and analysis!
+
+
+Loading and Saving CSVs
+4 min
+
+When you have data in a CSV, you can load it into a DataFrame in Pandas using .read_csv():
+
+pd.read_csv('my-csv-file.csv')
+
+In the example above, the .read_csv() method is called. The CSV file called my-csv-file is passed in as an argument.
+
+We can also save data to a CSV, using .to_csv().
+
+df.to_csv('new-csv-file.csv')
+
+In the example above, the .to_csv() method is called on df (which represents a DataFrame object). The name of the CSV file is passed in as an argument (new-csv-file.csv). By default, this method will save the CSV file in your current directory.
+
+
