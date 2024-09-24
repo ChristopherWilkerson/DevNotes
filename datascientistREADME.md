@@ -1,4 +1,7 @@
 
+
+
+
 ## Sept 7th, 2024 ##
 
 Manipulation
@@ -1057,3 +1060,174 @@ Note that the old indices have been moved into a new column called 'index'. Unle
 2 	Joe 	Schmo
 
 Using .reset_index() will return a new DataFrame, but we usually just want to modify our existing DataFrame. If we use the keyword inplace=True we can just modify our existing DataFrame.
+
+Calculating Column Statistics
+9 min
+
+Aggregate functions summarize many data points (i.e., a column of a dataframe) into a smaller set of values.
+
+Some examples of this type of calculation include:
+
+    The DataFrame customers contains the names and ages of all of your customers. You want to find the median age:
+
+print(customers.age)
+>> [23, 25, 31, 35, 35, 46, 62]
+print(customers.age.median())
+>> 35
+
+    The DataFrame shipments contains address information for all shipments that you’ve sent out in the past year. You want to know how many different states you have shipped to (and how many shipments went to the same state).
+
+print(shipments.state)
+>> ['CA', 'CA', 'CA', 'CA', 'NY', 'NY', 'NJ', 'NJ', 'NJ', 'NJ', 'NJ', 'NJ', 'NJ']
+print(shipments.state.nunique())
+>> 3
+
+    The DataFrame inventory contains a list of types of t-shirts that your company makes. You want a list of the colors that your shirts come in.
+
+print(inventory.color)
+>> ['blue', 'blue', 'blue', 'blue', 'blue', 'green', 'green', 'orange', 'orange', 'orange']
+print(inventory.color.unique())
+>> ['blue', 'green', 'orange']
+
+The general syntax for these calculations is:
+
+df.column_name.command()
+
+The following table summarizes some common commands:
+Command 	Description
+mean 	Average of all values in column
+std 	Standard deviation
+median 	Median
+max 	Maximum value in column
+min 	Minimum value in column
+count 	Number of values in column
+nunique 	Number of unique values in column
+unique 	List of unique values in column
+
+Aggregates in Pandas
+Calculating Aggregate Functions I
+8 min
+
+When we have a bunch of data, we often want to calculate aggregate statistics (mean, standard deviation, median, percentiles, etc.) over certain subsets of the data.
+
+Suppose we have a grade book with columns student, assignment_name, and grade. The first few lines look like this:
+student 	assignment_name 	grade
+Amy 	Assignment 1 	75
+Amy 	Assignment 2 	35
+Bob 	Assignment 1 	99
+Bob 	Assignment 2 	35
+… 		
+
+We want to get an average grade for each student across all assignments. We could do some sort of loop, but Pandas gives us a much easier option: the method .groupby.
+
+For this example, we’d use the following command:
+
+grades = df.groupby('student').grade.mean()
+
+The output might look something like this:
+student 	grade
+Amy 	80
+Bob 	90
+Chris 	75
+… 	
+
+In general, we use the following syntax to calculate aggregates:
+
+df.groupby('column1').column2.measurement()
+
+where:
+
+    column1 is the column that we want to group by ('student' in our example)
+    column2 is the column that we want to perform a measurement on (grade in our example)
+    measurement is the measurement function we want to apply (mean in our example)
+
+
+Aggregates in Pandas
+Calculating Aggregate Functions IV
+8 min
+
+Sometimes, we want to group by more than one column. We can easily do this by passing a list of column names into the groupby method.
+
+Imagine that we run a chain of stores and have data about the number of sales at different locations on different days:
+Location 	Date 	Day of Week 	Total Sales
+West Village 	February 1 	W 	400
+West Village 	February 2 	Th 	450
+Chelsea 	February 1 	W 	375
+Chelsea 	February 2 	Th 	390
+
+We suspect that sales are different at different locations on different days of the week. In order to test this hypothesis, we could calculate the average sales for each store on each day of the week across multiple months. The code would look like this:
+
+df.groupby(['Location', 'Day of Week'])['Total Sales'].mean().reset_index()
+
+The results might look something like this:
+Location 	Day of Week 	Total Sales
+Chelsea 	M 	402.50
+Chelsea 	Tu 	422.75
+Chelsea 	W 	452.00
+… 		
+West Village 	M 	390
+West Village 	Tu 	400
+… 		
+
+Aggregates in Pandas
+Pivot Tables
+10 min
+
+When we perform a groupby across multiple columns, we often want to change how our data is stored. For instance, recall the example where we are running a chain of stores and have data about the number of sales at different locations on different days:
+Location 	Date 	Day of Week 	Total Sales
+West Village 	February 1 	W 	400
+West Village 	February 2 	Th 	450
+Chelsea 	February 1 	W 	375
+Chelsea 	February 2 	Th 	390
+We suspected that there might be different sales on different days of the week at different stores, so we performed a `groupby` across two different columns (`Location` and `Day of Week`). This gave us results that looked like this:
+Location 	Day of Week 	Total Sales
+Chelsea 	M 	300
+Chelsea 	Tu 	310
+Chelsea 	W 	375
+Chelsea 	Th 	390
+… 		
+West Village 	Th 	450
+West Village 	F 	390
+West Village 	Sa 	250
+… 		
+In order to test our hypothesis, it would be more useful if the table was formatted like this:
+Location 	M 	Tu 	W 	Th 	F 	Sa 	Su
+Chelsea 	300 	310 	375 	390 	300 	150 	175
+West Village 	300 	310 	400 	450 	390 	250 	200
+… 							
+
+Reorganizing a table in this way is called pivoting. The new table is called a pivot table.
+
+In Pandas, the command for pivot is:
+
+df.pivot(columns='ColumnToPivot',
+         index='ColumnToBeRows',
+         values='ColumnToBeValues')
+
+For our specific example, we would write the command like this:
+
+# First use the groupby statement:
+unpivoted = df.groupby(['Location', 'Day of Week'])['Total Sales'].mean().reset_index()
+# Now pivot the table
+pivoted = unpivoted.pivot(
+    columns='Day of Week',
+    index='Location',
+    values='Total Sales')
+
+Just like with groupby, the output of a pivot command is a new DataFrame, but the indexing tends to be “weird”, so we usually follow up with .reset_index().
+
+Working with Multiple DataFrames
+Inner Merge II
+8 min
+
+It is easy to do this kind of matching for one row, but hard to do it for multiple rows.
+
+Luckily, Pandas can efficiently do this for the entire table. We use the .merge() method.
+
+The .merge() method looks for columns that are common between two DataFrames and then looks for rows where those column’s values are the same. It then combines the matching rows into a single row in a new table.
+
+We can call the pd.merge() method with two tables like this:
+
+new_df = pd.merge(orders, customers)
+
+This will match up all of the customer information to the orders that each customer made.
